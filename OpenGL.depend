@@ -276,3 +276,85 @@
 	"ListaDeCoresRGB.h"
 	"Temporizador.h"
 
+1692904434 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/DiagramaVoronoi.cpp
+	"DiagramaVoronoi.h"
+
+1692904434 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/DiagramaVoronoi.h
+	<iostream>
+	<fstream>
+	"Poligono.h"
+
+1693865633 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Poligono.h
+	<iostream>
+	<windows.h>
+	<glut.h>
+	<GLUT/glut.h>
+	<glut.h>
+	"Ponto.h"
+	<vector>
+
+1692904434 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/GL/glut.h
+	"freeglut.h"
+
+1692904434 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/GL/freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1692904434 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/GL/freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1692904434 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/GL/freeglut_ext.h
+
+1692904434 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Ponto.h
+	<iostream>
+	<cmath>
+
+1693875696 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/ExibeVARIOSPoligonos.cpp
+	<iostream>
+	<cmath>
+	<ctime>
+	<fstream>
+	<stdlib.h>
+	<windows.h>
+	<glut.h>
+	<sys/time.h>
+	<GLUT/glut.h>
+	<glut.h>
+	"Ponto.h"
+	"Poligono.h"
+	"DiagramaVoronoi.h"
+	"ListaDeCoresRGB.h"
+	"Temporizador.h"
+
+1692904434 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/ListaDeCoresRGB.h
+	<iostream>
+	<cmath>
+	<ctime>
+	<fstream>
+	<windows.h>
+	<glut.h>
+	<sys/time.h>
+	<GLUT/glut.h>
+	<glut.h>
+
+1692904434 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Temporizador.h
+	<iostream>
+	<windows.h>
+	<sys/time.h>
+
+1692904434 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/ListaDeCoresRGB.cpp
+	"ListaDeCoresRGB.h"
+
+1693869243 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Poligono.cpp
+	<iostream>
+	<fstream>
+	"Poligono.h"
+
+1692904434 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Ponto.cpp
+	"Ponto.h"
+
+1692904434 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Temporizador.cpp
+	"Temporizador.h"
+

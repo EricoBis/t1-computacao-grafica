@@ -128,3 +128,25 @@ void Poligono::desenhaAresta(int n)
     glEnd();
 }
 
+bool Poligono::pontoEstaDentro(Ponto &ponto) {
+    int size = getNVertices();
+    Ponto P1, P2;
+
+    // Para cada vértice do polígono
+    for (int i = 0; i < size; i++)
+    {
+        getAresta(i, P1, P2);
+        Ponto vetorAresta = P2 - P1;
+        Ponto vetorPonto = ponto - P1;
+
+        Ponto produtoVetorial;
+        ProdVetorial(vetorAresta, vetorPonto, produtoVetorial);
+
+        // Se o ponto esriver à direita da aresta, está fora
+        if (produtoVetorial.z < 0) {
+            return false; 
+        }
+    }
+    // O ponto está à esquerda de todas as arestas
+    return true;
+}

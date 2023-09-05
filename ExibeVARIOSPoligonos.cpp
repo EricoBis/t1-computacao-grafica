@@ -117,6 +117,7 @@ void init()
 
     Voro.LePoligonos("ListaDePoligonos-V2.txt"); //lê o arquivo com os polígonos
     Voro.obtemLimites(Min,Max); //calcula os limites, para ajustar a janela
+
     Min.imprime("Minimo:", "\n");
     Max.imprime("Maximo:", "\n");
 
