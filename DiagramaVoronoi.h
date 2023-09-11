@@ -28,6 +28,9 @@ public:
     Poligono getPoligono(int i);
     void obtemLimites(Ponto &min, Ponto &max);
     unsigned int getNPoligonos();
+    bool orientacao(Ponto p, Ponto q, Ponto r);
+    bool intersecaoArestas(Ponto p1, Ponto p2, Ponto q1, Ponto q2);
+    void obtemVizinhosDasArestas();
 };
 
 #endif /* DiagramaVoronoi_h */

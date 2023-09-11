@@ -358,3 +358,96 @@
 1692904434 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Temporizador.cpp
 	"Temporizador.h"
 
+1694359996 source:c:\users\ada\documents\cg\t1-computacao-grafica\envelope.cpp
+	"Envelope.h"
+
+1694359996 c:\users\ada\documents\cg\t1-computacao-grafica\envelope.h
+	<iostream>
+	<windows.h>
+	<glut.h>
+	<GLUT/glut.h>
+	<glut.h>
+	"Ponto.h"
+
+1694359996 c:\users\ada\documents\cg\t1-computacao-grafica\gl\glut.h
+	"freeglut.h"
+
+1694359996 c:\users\ada\documents\cg\t1-computacao-grafica\gl\freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1694359996 c:\users\ada\documents\cg\t1-computacao-grafica\gl\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1694359996 c:\users\ada\documents\cg\t1-computacao-grafica\gl\freeglut_ext.h
+
+1694359996 c:\users\ada\documents\cg\t1-computacao-grafica\ponto.h
+	<iostream>
+	<cmath>
+
+1694359996 source:c:\users\ada\documents\cg\t1-computacao-grafica\listadecoresrgb.cpp
+	"ListaDeCoresRGB.h"
+
+1694359996 c:\users\ada\documents\cg\t1-computacao-grafica\listadecoresrgb.h
+	<iostream>
+	<cmath>
+	<ctime>
+	<fstream>
+	<windows.h>
+	<glut.h>
+	<sys/time.h>
+	<GLUT/glut.h>
+	<glut.h>
+
+1694359996 source:c:\users\ada\documents\cg\t1-computacao-grafica\poligono.cpp
+	<iostream>
+	<fstream>
+	"Poligono.h"
+
+1694359996 c:\users\ada\documents\cg\t1-computacao-grafica\poligono.h
+	<iostream>
+	<windows.h>
+	<glut.h>
+	<GLUT/glut.h>
+	<glut.h>
+	"Ponto.h"
+	<vector>
+
+1694359996 source:c:\users\ada\documents\cg\t1-computacao-grafica\ponto.cpp
+	"Ponto.h"
+
+1694359996 source:c:\users\ada\documents\cg\t1-computacao-grafica\temporizador.cpp
+	"Temporizador.h"
+
+1694359996 c:\users\ada\documents\cg\t1-computacao-grafica\temporizador.h
+	<iostream>
+	<windows.h>
+	<sys/time.h>
+
+1694365000 source:c:\users\ada\documents\cg\t1-computacao-grafica\diagramavoronoi.cpp
+	"DiagramaVoronoi.h"
+
+1694365145 c:\users\ada\documents\cg\t1-computacao-grafica\diagramavoronoi.h
+	<iostream>
+	<fstream>
+	"Poligono.h"
+
+1694362018 source:c:\users\ada\documents\cg\t1-computacao-grafica\exibevariospoligonos.cpp
+	<iostream>
+	<cmath>
+	<ctime>
+	<fstream>
+	<stdlib.h>
+	<windows.h>
+	<glut.h>
+	<sys/time.h>
+	<GLUT/glut.h>
+	<glut.h>
+	"Ponto.h"
+	"Poligono.h"
+	"DiagramaVoronoi.h"
+	"ListaDeCoresRGB.h"
+	"Temporizador.h"
+
