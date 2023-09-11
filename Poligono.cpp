@@ -128,8 +128,11 @@ void Poligono::desenhaAresta(int n)
     glEnd();
 }
 
+// **********************************************************************
+// Verifica se um determinado ponto está dentro deste polígono
+// **********************************************************************
 bool Poligono::pontoEstaDentro(Ponto &ponto) {
-    int size = getNVertices();
+    int size = getNVertices();  
     Ponto P1, P2;
 
     // Para cada vértice do polígono

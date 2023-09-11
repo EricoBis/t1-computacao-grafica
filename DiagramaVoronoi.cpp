@@ -72,15 +72,18 @@ Poligono Voronoi::getPoligono(int i)
     }
     return Diagrama[i];
 }
+
 unsigned int Voronoi::getNPoligonos()
 {
     return qtdDePoligonos;
 }
+
 void Voronoi::obtemLimites(Ponto &min, Ponto &max)
 {
     min = this->Min;
     max = this->Max;
 }
+
 //------------------------------------------------------------------------------------
 //calcula a intersecao de 3 pontos com produto vetorial
 bool Voronoi::orientacao(Ponto p, Ponto q, Ponto r)
