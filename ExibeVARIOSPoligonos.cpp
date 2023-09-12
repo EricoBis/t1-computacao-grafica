@@ -1,6 +1,6 @@
 // **********************************************************************
-// PUCRS/Escola PolitŽcnica
-// COMPUTA‚ÌO GRçFICA
+// PUCRS/Escola Politï¿½cnica
+// COMPUTAï¿½ï¿½O GRï¿½FICA
 //
 // Programa basico para criar aplicacoes 2D em OpenGL
 //
@@ -115,7 +115,7 @@ void init()
     // Define a cor do fundo da tela (AZUL)
     glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
 
-    Voro.LePoligonos("ListaDePoligonos-V2.txt"); //lê o arquivo com os polígonos
+    Voro.LePoligonos("ListaDePoligonos-V2.txt"); //lï¿½ o arquivo com os polï¿½gonos
     Voro.obtemLimites(Min,Max); //calcula os limites, para ajustar a janela
     Voro.obtemVizinhosDasArestas(); //calcula os vizinhos
 
@@ -125,10 +125,11 @@ void init()
     CoresDosPoligonos = new int[Voro.getNPoligonos()];
 
     for (int i=0; i<Voro.getNPoligonos(); i++) //sorteia as cores dos poligonos
+    {
         CoresDosPoligonos[i] = i*2;//rand()%80;
-
-    // Ajusta a largura da janela l—gica
-    // em fun‹o do tamanho dos pol’gonos
+    }
+    // Ajusta a largura da janela lï¿½gica
+    // em funï¿½ï¿½o do tamanho dos polï¿½gonos
     Ponto Largura;
     Largura = Max - Min;
 
@@ -150,7 +151,7 @@ void animate()
     TempoTotal += dt;
     nFrames++;
 
-    if (AccumDeltaT > 1.0/30) // fixa a atualiza‹o da tela em 30
+    if (AccumDeltaT > 1.0/30) // fixa a atualizaï¿½ï¿½o da tela em 30
     {
         AccumDeltaT = 0;
         //angulo+=0.05;
@@ -236,7 +237,7 @@ void display( void )
 	// Limpa a tela coma cor de fundo
 	glClear(GL_COLOR_BUFFER_BIT);
 
-    // Define os limites l—gicos da area OpenGL dentro da Janela
+    // Define os limites lï¿½gicos da area OpenGL dentro da Janela
 	glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
@@ -253,10 +254,10 @@ void display( void )
 
     //TODO - getvizinhos, quais sao os poligonos vizinhos de i?????
     Poligono P;
-    for (int i=0; i<Voro.getNPoligonos(); i++) //desenha o diagrama getn diz quantos polígonos tem
+    for (int i=0; i<Voro.getNPoligonos(); i++) //desenha o diagrama getn diz quantos polï¿½gonos tem
     {
         defineCor(CoresDosPoligonos[i]);
-        P = Voro.getPoligono(i); //metodo chave que será bastante utilizado
+        P = Voro.getPoligono(i); //metodo chave que serï¿½ bastante utilizado
         P.pintaPoligono();
     }
     glColor3f(0,0,0);
@@ -271,7 +272,7 @@ void display( void )
         desenha = false;
     }
 
-    // se o ponto for clicado desenha uma linha horizontal do ponto até o limite da esquerda (mesmo y)
+    // se o ponto for clicado desenha uma linha horizontal do ponto atï¿½ o limite da esquerda (mesmo y)
     if (FoiClicado == true)
     {
         Ponto Esq;
@@ -292,8 +293,8 @@ void display( void )
 }
 // **********************************************************************
 // ContaTempo(double tempo)
-//      conta um certo nœmero de segundos e informa quanto frames
-// se passaram neste per’odo.
+//      conta um certo nï¿½mero de segundos e informa quanto frames
+// se passaram neste perï¿½odo.
 // **********************************************************************
 void ContaTempo(double tempo)
 {
@@ -352,10 +353,10 @@ void arrow_keys ( int a_keys, int x, int y )
 	}
 }
 // **********************************************************************
-// Esta fun‹o captura o clique do botao direito do mouse sobre a ‡rea de
-// desenho e converte a coordenada para o sistema de referncia definido
-// na glOrtho (ver fun‹o reshape)
-// Este c—digo Ž baseado em http://hamala.se/forums/viewtopic.php?t=20
+// Esta funï¿½ï¿½o captura o clique do botao direito do mouse sobre a ï¿½rea de
+// desenho e converte a coordenada para o sistema de referï¿½ncia definido
+// na glOrtho (ver funï¿½ï¿½o reshape)
+// Este cï¿½digo ï¿½ baseado em http://hamala.se/forums/viewtopic.php?t=20
 // **********************************************************************
 void Mouse(int button,int state,int x,int y)
 {
@@ -402,38 +403,38 @@ int  main ( int argc, char** argv )
     // que aparecera na barra de titulo da janela.
     glutCreateWindow    ( "Poligonos em OpenGL" );
 
-    // executa algumas inicializações
+    // executa algumas inicializaï¿½ï¿½es
     init ();
 
     // Define que o tratador de evento para
     // o redesenho da tela. A funcao "display"
-    // será chamada automaticamente quando
-    // for necessário redesenhar a janela
+    // serï¿½ chamada automaticamente quando
+    // for necessï¿½rio redesenhar a janela
     glutDisplayFunc ( display );
 
     // Define que o tratador de evento para
-    // o invalida‹o da tela. A funcao "display"
-    // será chamada automaticamente sempre que a
-    // m‡quina estiver ociosa (idle)
+    // o invalidaï¿½ï¿½o da tela. A funcao "display"
+    // serï¿½ chamada automaticamente sempre que a
+    // mï¿½quina estiver ociosa (idle)
     glutIdleFunc(animate);
 
     // Define que o tratador de evento para
     // o redimensionamento da janela. A funcao "reshape"
-    // será chamada automaticamente quando
-    // o usuário alterar o tamanho da janela
+    // serï¿½ chamada automaticamente quando
+    // o usuï¿½rio alterar o tamanho da janela
     glutReshapeFunc ( reshape );
 
     // Define que o tratador de evento para
     // as teclas. A funcao "keyboard"
-    // será chamada automaticamente sempre
-    // o usuário pressionar uma tecla comum
+    // serï¿½ chamada automaticamente sempre
+    // o usuï¿½rio pressionar uma tecla comum
     glutKeyboardFunc ( keyboard );
 
     // Define que o tratador de evento para
     // as teclas especiais(F1, F2,... ALT-A,
     // ALT-B, Teclas de Seta, ...).
-    // A funcao "arrow_keys" será chamada
-    // automaticamente sempre o usuário
+    // A funcao "arrow_keys" serï¿½ chamada
+    // automaticamente sempre o usuï¿½rio
     // pressionar uma tecla especial
     glutSpecialFunc ( arrow_keys );
 

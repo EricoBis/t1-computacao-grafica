@@ -12,7 +12,6 @@
 #include <iostream>
 using namespace std;
 
-
 #ifdef WIN32
 #include <windows.h>
 #include <glut.h>
@@ -31,10 +30,19 @@ using namespace std;
 
 class Poligono
 {
-    vector <Ponto> Vertices;
+    vector<Ponto> Vertices;
     Ponto Min, Max;
+
+    struct ArestaInfo // Estrutura que armazena ponteiros para poligonos vizinhos
+    {
+        vector<Poligono *> vizinhos; // Vetor de poligonos vizinhos
+    };
+    vector<ArestaInfo> arestas; // Vetor de arestas
+    
 public:
     Poligono();
+    void adicionarVizinho(int indiceAresta, Poligono *vizinho);
+    std::vector<Poligono *> getVizinhosAresta(int indiceAresta);
     Ponto getVertice(int);
     unsigned long getNVertices();
     void insereVertice(Ponto);
@@ -51,4 +59,4 @@ public:
     bool pontoEstaDentro(Ponto &ponto);
 };
 
-#endif 
+#endif
