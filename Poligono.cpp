@@ -22,13 +22,15 @@ Poligono::Poligono()
 // Adiciona novo vizinho a uma aresta
 void Poligono::adicionarVizinho(int indiceAresta, Poligono* vizinho)
 {
-    arestas.push_back(vizinho);
+    vizinhosArestas[indiceAresta] = vizinho;
 }
 
-// Retorna vetor de poligonos vizinhos pelo indice da aresta
+// Retorna poligono vizinho pelo indice da aresta
 Poligono* Poligono::getVizinhoAresta(int indiceAresta)
 {
-    return arestas[indiceAresta];
+    if(vizinhosArestas.find(indiceAresta) != vizinhosArestas.end())
+         return vizinhosArestas[indiceAresta];
+    return nullptr;
 }
 
 //***********************************************************************

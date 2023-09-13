@@ -27,14 +27,15 @@ using namespace std;
 
 #include "Ponto.h"
 #include <vector>
+#include <map>
 
 class Poligono
 {
     vector<Ponto> Vertices;
     Ponto Min, Max;
 
-    vector<Poligono*> arestas; // Vetor de arestas
-    
+    std::map<int, Poligono*> vizinhosArestas;; // map de arestas
+
 public:
     Poligono();
 

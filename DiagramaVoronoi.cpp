@@ -8,6 +8,8 @@
 
 #include "DiagramaVoronoi.h"
 
+#include <set>
+
 ifstream input; // ofstream arq;
 
 Voronoi::Voronoi()
@@ -126,8 +128,6 @@ void Voronoi::obtemVizinhosDasArestas()
             Ponto p1, p2;
             polignoAtual.getAresta(j, p1, p2);
 
-            vector<int> vizinhos; // inicializa lista de vizinhos para a aresta
-
             for (int k = 0; k < qtdDePoligonos; k++) // percorre os demais poligonos
             {
                 if (i != k)
@@ -141,27 +141,20 @@ void Voronoi::obtemVizinhosDasArestas()
 
                         if ((p1 == q1 && p2 == q2) || (p2 == q1 && p1 == q2)) // verifica a intersecao
                         {
-
-
-                            vizinhos.push_back(k); // se intersectam vai adicionar o indice do poligono em vizinhos
-
-                            // Adiciona poligonos vizinhos das arestas
-                            // polignoAtual.adicionarVizinho(j, &outroPoligono);
-                            // outroPoligono.adicionarVizinho(l, &polignoAtual);
+                            // Adiciona poligono vizinho da aresta j
+                            polignoAtual.adicionarVizinho(j, &outroPoligono);
 
                             break; // não precisa verificar os demais :)
                         }
                     }
                 }
             }
-
-            cout << "Aresta " << j << " do poligono " << i << " tem vizinhos: ";
             
-            for (int i = 0; i < vizinhos.size(); i++)
-            {
-                cout << vizinhos[i] << " ";
-            }
-            cout << endl;
+            // cout << "Aresta " << j << " do poligono " << i << " tem vizinhos: ";
+
+            // if (polignoAtual.getVizinhoAresta(j)!=nullptr)
+            //     cout << "sim" << " ";
+            //  cout << endl;
         }
     }
 }
