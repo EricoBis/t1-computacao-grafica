@@ -154,8 +154,9 @@ void Voronoi::obtemVizinhosDasArestas()
                     }
                 }
             }
-            cout << "Aresta " << j << " do poligono " << i << " tem vizinhos: ";
 
+            cout << "Aresta " << j << " do poligono " << i << " tem vizinhos: ";
+            
             for (int i = 0; i < vizinhos.size(); i++)
             {
                 cout << vizinhos[i] << " ";

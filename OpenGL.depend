@@ -10,25 +10,25 @@
 	<glut.h>
 	"Temporizador.h"
 
-1692904432 dor.h"
+1694362018 dor.h"
 
 1298986600 d:\pinho\basico2d\gl\glut.h
 	"freeglut.h"
 
-1692904432 h"
+1694365145 h"
 
 1298986600 d:\pinho\basico2d\gl\freeglut.h
 	"freeglut_std.h"
 	"freeglut_ext.h"
 
-1692904433 ext.h"
+1694359996 ext.h"
 
 1298986600 d:\pinho\basico2d\gl\freeglut_std.h
 	<windows.h>
 	<GL/gl.h>
 	<GL/glu.h>
 
-1692904432 
+1694359996 
 
 1298986600 d:\pinho\basico2d\gl\freeglut_ext.h
 
@@ -37,7 +37,7 @@
 	<windows.h>
 	<sys/time.h>
 
-1692904432 h>
+1694359996 h>
 
 1584988348 source:d:\pinho\basico2d\temporizador.cpp
 	"Temporizador.h"
@@ -98,7 +98,7 @@
 1692904432 source:c:\users\10033421\desktop\voronoi\diagramavoronoi.cpp
 	"DiagramaVoronoi.h"
 
-1692904432 oronoi.h"
+1694365000 oronoi.h"
 
 1692904432 c:\users\10033421\desktop\voronoi\diagramavoronoi.h
 	<iostream>
@@ -155,7 +155,7 @@
 1692904432 source:c:\users\10033421\desktop\voronoi\listadecoresrgb.cpp
 	"ListaDeCoresRGB.h"
 
-1692904432 resRGB.h"
+1694359996 resRGB.h"
 
 1692904432 c:\users\10033421\desktop\voronoi\listadecoresrgb.h
 	<iostream>
@@ -450,4 +450,97 @@
 	"DiagramaVoronoi.h"
 	"ListaDeCoresRGB.h"
 	"Temporizador.h"
+
+1694556804 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/DiagramaVoronoi.cpp
+	"DiagramaVoronoi.h"
+
+1694553982 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/DiagramaVoronoi.h
+	<iostream>
+	<fstream>
+	"Poligono.h"
+
+1694556666 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Poligono.h
+	<iostream>
+	<windows.h>
+	<glut.h>
+	<GLUT/glut.h>
+	<glut.h>
+	"Ponto.h"
+	<vector>
+
+1692904434 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/GL/glut.h
+	"freeglut.h"
+
+1692904434 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/GL/freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1692904434 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/GL/freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1692904434 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/GL/freeglut_ext.h
+
+1692904434 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Ponto.h
+	<iostream>
+	<cmath>
+
+1694442485 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Envelope.cpp
+	"Envelope.h"
+
+1662584845 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Envelope.h
+	<iostream>
+	<windows.h>
+	<glut.h>
+	<GLUT/glut.h>
+	<glut.h>
+	"Ponto.h"
+
+1694553982 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/ExibeVARIOSPoligonos.cpp
+	<iostream>
+	<cmath>
+	<ctime>
+	<fstream>
+	<stdlib.h>
+	<windows.h>
+	<glut.h>
+	<sys/time.h>
+	<GLUT/glut.h>
+	<glut.h>
+	"Ponto.h"
+	"Poligono.h"
+	"DiagramaVoronoi.h"
+	"ListaDeCoresRGB.h"
+	"Temporizador.h"
+
+1692904434 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/ListaDeCoresRGB.h
+	<iostream>
+	<cmath>
+	<ctime>
+	<fstream>
+	<windows.h>
+	<glut.h>
+	<sys/time.h>
+	<GLUT/glut.h>
+	<glut.h>
+
+1692904434 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Temporizador.h
+	<iostream>
+	<windows.h>
+	<sys/time.h>
+
+1692904434 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/ListaDeCoresRGB.cpp
+	"ListaDeCoresRGB.h"
+
+1692904434 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Ponto.cpp
+	"Ponto.h"
+
+1692904434 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Temporizador.cpp
+	"Temporizador.h"
+
+1694556651 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Poligono.cpp
+	<iostream>
+	<fstream>
+	"Poligono.h"
 

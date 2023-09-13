@@ -20,15 +20,15 @@ Poligono::Poligono()
 // **********************************************************************
 
 // Adiciona novo vizinho a uma aresta
-void Poligono::adicionarVizinho(int indiceAresta, Poligono *vizinho)
+void Poligono::adicionarVizinho(int indiceAresta, Poligono* vizinho)
 {
-    arestas[indiceAresta].vizinhos.push_back(vizinho);
+    arestas.push_back(vizinho);
 }
 
 // Retorna vetor de poligonos vizinhos pelo indice da aresta
-std::vector<Poligono *> Poligono::getVizinhosAresta(int indiceAresta)
+Poligono* Poligono::getVizinhoAresta(int indiceAresta)
 {
-    return arestas[indiceAresta].vizinhos;
+    return arestas[indiceAresta];
 }
 
 //***********************************************************************
