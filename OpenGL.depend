@@ -451,22 +451,23 @@
 	"ListaDeCoresRGB.h"
 	"Temporizador.h"
 
-1694640908 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/DiagramaVoronoi.cpp
+1694788686 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/DiagramaVoronoi.cpp
 	"DiagramaVoronoi.h"
 	<set>
 
-1694553982 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/DiagramaVoronoi.h
+1694787924 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/DiagramaVoronoi.h
 	<iostream>
 	<fstream>
 	"Poligono.h"
 
-1694613799 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Poligono.h
+1694786263 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Poligono.h
 	<iostream>
 	<windows.h>
 	<glut.h>
 	<GLUT/glut.h>
 	<glut.h>
 	"Ponto.h"
+	"Envelope.h"
 	<vector>
 	<map>
 
@@ -488,7 +489,7 @@
 	<iostream>
 	<cmath>
 
-1694442485 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Envelope.cpp
+1694791191 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Envelope.cpp
 	"Envelope.h"
 
 1662584845 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Envelope.h
@@ -499,7 +500,7 @@
 	<glut.h>
 	"Ponto.h"
 
-1694553982 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/ExibeVARIOSPoligonos.cpp
+1694791336 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/ExibeVARIOSPoligonos.cpp
 	<iostream>
 	<cmath>
 	<ctime>
@@ -541,8 +542,9 @@
 1692904434 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Temporizador.cpp
 	"Temporizador.h"
 
-1694613729 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Poligono.cpp
+1694790880 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Poligono.cpp
 	<iostream>
 	<fstream>
 	"Poligono.h"
+	"Envelope.h"
 

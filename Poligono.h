@@ -26,6 +26,7 @@ using namespace std;
 #endif
 
 #include "Ponto.h"
+#include "Envelope.h"
 #include <vector>
 #include <map>
 
@@ -33,6 +34,7 @@ class Poligono
 {
     vector<Ponto> Vertices;
     Ponto Min, Max;
+    Envelope envelope;
 
     std::map<int, Poligono*> vizinhosArestas;; // map de arestas
 
@@ -41,6 +43,9 @@ public:
 
     void adicionarVizinho(int indiceAresta, Poligono* vizinho);
     Poligono* getVizinhoAresta(int indiceAresta);
+
+    void armazenaEnvelope();
+    Envelope getEnvelope();
 
     Ponto getVertice(int);
     unsigned long getNVertices();

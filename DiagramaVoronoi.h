@@ -30,7 +30,9 @@ public:
     unsigned int getNPoligonos();
     // int orientacao(Ponto p, Ponto q, Ponto r);
     // bool intersecaoArestas(Ponto p1, Ponto p2, Ponto q1, Ponto q2);
-    void geraEnvelopes();
+    void geraEnvelopesPoligonos();
+    void imprimePontosEnvelopes();
+    void desenhaEnvelopesPoligonos();
     void obtemVizinhosDasArestas();
 };
 

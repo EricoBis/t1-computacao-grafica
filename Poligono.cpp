@@ -10,6 +10,7 @@
 using namespace std;
 
 #include "Poligono.h"
+#include "Envelope.h"
 
 Poligono::Poligono()
 {
@@ -34,6 +35,26 @@ Poligono* Poligono::getVizinhoAresta(int indiceAresta)
 }
 
 //***********************************************************************
+
+// **********************************************************************
+// Métodos que gerenciam o Envelope do poligono
+// **********************************************************************
+
+// Armazena Envelope do poligono
+void Poligono::armazenaEnvelope()
+{
+    Ponto P1, P2;
+
+    obtemLimites(P1, P2);
+    envelope.GeraEnvelope(P1, P2);
+}
+
+// Retorna envelope do poligono atual
+Envelope Poligono::getEnvelope()
+{
+    return envelope;
+}
+// **********************************************************************
 
 void Poligono::insereVertice(Ponto p)
 {

@@ -118,11 +118,27 @@ void Voronoi::obtemLimites(Ponto &min, Ponto &max)
 //     return false;
 // }
 
-void Voronoi::geraEnvelopes()
+void Voronoi::geraEnvelopesPoligonos()
 {
-    for(int i = 0; i < getNPoligonos(); i++)
+    for (int i = 0; i < getNPoligonos(); i++)
     {
+        Diagrama[i].armazenaEnvelope();
+    }
+}
 
+void Voronoi::imprimePontosEnvelopes()
+{
+    for (int i = 0; i < getNPoligonos(); i++)
+    {
+        Diagrama[i].getEnvelope().imprime();
+    }
+}
+
+void Voronoi::desenhaEnvelopesPoligonos()
+{
+    for (int i = 0; i < getNPoligonos(); i++)
+    {
+        Diagrama[i].getEnvelope().Desenha();
     }
 }
 
@@ -160,9 +176,10 @@ void Voronoi::obtemVizinhosDasArestas()
 
             cout << "Aresta " << j << " do poligono " << i << " tem vizinhos: ";
 
-            if (polignoAtual.getVizinhoAresta(j)!=nullptr)
-                cout << "sim" << " ";
-             cout << endl;
+            if (polignoAtual.getVizinhoAresta(j) != nullptr)
+                cout << "sim"
+                     << " ";
+            cout << endl;
         }
     }
 }

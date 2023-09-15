@@ -70,6 +70,7 @@ void Envelope::imprime()
 {
     Min.imprime("Minimo: ");
     Max.imprime(" Maximo: ");
+    cout<< endl;
 }
 void Envelope::Desenha()
 {
