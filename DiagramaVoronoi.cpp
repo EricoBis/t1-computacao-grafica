@@ -118,6 +118,14 @@ void Voronoi::obtemLimites(Ponto &min, Ponto &max)
 //     return false;
 // }
 
+void Voronoi::geraEnvelopes()
+{
+    for(int i = 0; i < getNPoligonos(); i++)
+    {
+
+    }
+}
+
 void Voronoi::obtemVizinhosDasArestas()
 {
     for (int i = 0; i < qtdDePoligonos; i++) // percorre todos os poligonos no diagrama
@@ -149,12 +157,12 @@ void Voronoi::obtemVizinhosDasArestas()
                     }
                 }
             }
-            
-            // cout << "Aresta " << j << " do poligono " << i << " tem vizinhos: ";
 
-            // if (polignoAtual.getVizinhoAresta(j)!=nullptr)
-            //     cout << "sim" << " ";
-            //  cout << endl;
+            cout << "Aresta " << j << " do poligono " << i << " tem vizinhos: ";
+
+            if (polignoAtual.getVizinhoAresta(j)!=nullptr)
+                cout << "sim" << " ";
+             cout << endl;
         }
     }
 }
