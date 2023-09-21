@@ -51,6 +51,11 @@ Poligono Pontos;
 Voronoi Voro;
 int *CoresDosPoligonos;
 
+// Ponto principal que se moverá pela tela
+Ponto pontoPrincipal;
+// Poligono relativo ao pontoPrincipal (demonstra graficamente o ponto)
+Poligono desenhoPontoPrincipal;
+
 // Limites logicos da area de desenho
 Ponto Min, Max, PontoClicado;
 
@@ -138,6 +143,8 @@ void init()
     Min = Min - Largura * 0.1;
     Max = Max + Largura * 0.1;
 
+    desenhoPontoPrincipal.LePoligono("PontoPrincipal.txt");
+    pontoPrincipal = Ponto(0, 0);
 }
 
 double nFrames=0;
@@ -169,6 +176,7 @@ void animate()
         nFrames = 0;
     }
 }
+
 // **********************************************************************
 //  void reshape( int w, int h )
 //  trata o redimensionamento da janela OpenGL
@@ -269,8 +277,15 @@ void display( void )
         P.desenhaPoligono();
     }
 
-    glColor3f(1,1,1);
-    Voro.desenhaEnvelopesPoligonos();
+    // glColor3f(1,1,1);
+    // Voro.desenhaEnvelopesPoligonos();
+
+    glColor3f(1, 1, 1);
+    
+    glPushMatrix();
+        glTranslatef(pontoPrincipal.x, pontoPrincipal.y, pontoPrincipal.z);
+        desenhoPontoPrincipal.desenhaPoligono();
+    glPopMatrix();
 
     if (desenha)
     {
@@ -346,14 +361,17 @@ void arrow_keys ( int a_keys, int x, int y )
 	switch ( a_keys )
 	{
 		case GLUT_KEY_UP:       // Se pressionar UP
-			glutFullScreen ( ); // Vai para Full Screen
+		    pontoPrincipal.soma(0, 0.05, 0);
 			break;
-	    case GLUT_KEY_DOWN:     // Se pressionar UP
-								// Reposiciona a janela
-            glutPositionWindow (50,50);
-			glutReshapeWindow ( 700, 500 );
+	    case GLUT_KEY_DOWN:     // Se pressionar DOWN
+	        pontoPrincipal.soma(0, -0.05, 0);
 			break;
-		default:
+        case GLUT_KEY_LEFT:     // Se pressionar LEFT
+            pontoPrincipal.soma(-0.05, 0, 0);
+            break;
+        case GLUT_KEY_RIGHT:
+            pontoPrincipal.soma(0.05, 0, 0);
+		default:                // Se pressionar RIGHT
 			break;
 	}
 }

@@ -61,6 +61,7 @@
 			<Add option="-Wno-narrowing" />
 			<Add option="-Wno-deprecated-declarations" />
 		</Compiler>
+		<Unit filename="1000-polygons.txt" />
 		<Unit filename="DiagramaVoronoi.cpp" />
 		<Unit filename="DiagramaVoronoi.h" />
 		<Unit filename="Envelope.cpp" />
