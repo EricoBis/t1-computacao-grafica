@@ -143,8 +143,10 @@ void init()
     Min = Min - Largura * 0.1;
     Max = Max + Largura * 0.1;
 
+    //
     desenhoPontoPrincipal.LePoligono("PontoPrincipal.txt");
-    pontoPrincipal = Ponto(0, 0);
+    pontoPrincipal = Ponto(10, 10);
+    //
 }
 
 double nFrames=0;
@@ -277,11 +279,14 @@ void display( void )
         P.desenhaPoligono();
     }
 
-    // glColor3f(1,1,1);
-    // Voro.desenhaEnvelopesPoligonos();
-
-    glColor3f(1, 1, 1);
     
+
+    Poligono poligonoAtual = Voro.inclusaoPoligonosConvexos(pontoPrincipal);
+    glColor3f(1, 1, 1);
+    poligonoAtual.pintaPoligono();
+
+    glColor3f(0, 0, 0);
+
     glPushMatrix();
         glTranslatef(pontoPrincipal.x, pontoPrincipal.y, pontoPrincipal.z);
         desenhoPontoPrincipal.desenhaPoligono();

@@ -171,7 +171,7 @@ void Poligono::desenhaAresta(int n)
 // **********************************************************************
 // Verifica se um determinado ponto está dentro deste polígono
 // **********************************************************************
-bool Poligono::pontoEstaDentro(Ponto &ponto)
+bool Poligono::pontoEstaDentroPoligono(Ponto &ponto)
 {
     int size = getNVertices();
     Ponto P1, P2;
@@ -180,11 +180,11 @@ bool Poligono::pontoEstaDentro(Ponto &ponto)
     for (int i = 0; i < size; i++)
     {
         getAresta(i, P1, P2);
-        Ponto vetorAresta = P2 - P1;
         Ponto vetorPonto = ponto - P1;
+        Ponto vetorAresta = P2 - P1;
 
         Ponto produtoVetorial;
-        ProdVetorial(vetorAresta, vetorPonto, produtoVetorial);
+        ProdVetorial(vetorPonto, vetorAresta, produtoVetorial);
 
         // Se o ponto esriver à direita da aresta, está fora
         if (produtoVetorial.z < 0)

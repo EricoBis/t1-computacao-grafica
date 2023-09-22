@@ -68,7 +68,7 @@ Poligono Voronoi::getPoligono(int i)
     if (i >= qtdDePoligonos)
     {
         cout << "Nro de Poligono Inexistente" << endl;
-        return Diagrama[0];
+        return Diagrama[0];Poligono *encontraPoligonoQueContemPonto(Ponto &ponto);
     }
     return Diagrama[i];
 }
@@ -118,6 +118,9 @@ void Voronoi::obtemLimites(Ponto &min, Ponto &max)
 //     return false;
 // }
 
+// **********************************************************************
+// Métodos para gerenciar Envelopes
+// **********************************************************************
 void Voronoi::geraEnvelopesPoligonos()
 {
     for (int i = 0; i < getNPoligonos(); i++)
@@ -140,6 +143,25 @@ void Voronoi::desenhaEnvelopesPoligonos()
     {
         Diagrama[i].getEnvelope().Desenha();
     }
+}
+// **********************************************************************
+
+Poligono Voronoi::inclusaoPoligonosConvexos(Ponto &ponto) {
+
+    Poligono result;
+    for (int i = 0; i < getNPoligonos(); i++)
+    {
+        Poligono poligonoAtual = Diagrama[i];
+        if(poligonoAtual.getEnvelope().pontoEstaDentro(ponto))
+        {
+            if(poligonoAtual.pontoEstaDentroPoligono(ponto))
+            {
+                result = poligonoAtual;
+                break;
+            }
+        }
+    }
+    return result;
 }
 
 void Voronoi::obtemVizinhosDasArestas()

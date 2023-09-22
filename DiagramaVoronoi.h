@@ -33,6 +33,7 @@ public:
     void geraEnvelopesPoligonos();
     void imprimePontosEnvelopes();
     void desenhaEnvelopesPoligonos();
+    Poligono inclusaoPoligonosConvexos(Ponto &ponto);
     void obtemVizinhosDasArestas();
 };
 
