@@ -70,7 +70,8 @@ Poligono Voronoi::getPoligono(int i)
     if (i >= qtdDePoligonos)
     {
         cout << "Nro de Poligono Inexistente" << endl;
-        return Diagrama[0];Poligono *encontraPoligonoQueContemPonto(Ponto &ponto);
+        return Diagrama[0];
+        Poligono *encontraPoligonoQueContemPonto(Ponto & ponto);
     }
     return Diagrama[i];
 }
@@ -148,15 +149,16 @@ void Voronoi::desenhaEnvelopesPoligonos()
 }
 // **********************************************************************
 
-Poligono Voronoi::inclusaoPoligonosConvexos(Ponto &ponto) {
+Poligono Voronoi::inclusaoPoligonosConvexos(Ponto &ponto)
+{
 
     Poligono result;
     for (int i = 0; i < getNPoligonos(); i++)
     {
         Poligono poligonoAtual = Diagrama[i];
-        if(poligonoAtual.getEnvelope().pontoEstaDentro(ponto))
+        if (poligonoAtual.getEnvelope().pontoEstaDentro(ponto))
         {
-            if(poligonoAtual.pontoEstaDentroPoligono(ponto))
+            if (poligonoAtual.pontoEstaDentroPoligono(ponto))
             {
                 result = poligonoAtual;
                 break;
@@ -164,6 +166,61 @@ Poligono Voronoi::inclusaoPoligonosConvexos(Ponto &ponto) {
         }
     }
     return result;
+}
+
+// Poligono Voronoi::inclusaoPoligonosConcavos(Ponto &ponto)
+// {
+//     Ponto P1, P2;
+//     int contadorInterseccoes = 0;
+
+//     Ponto pontoTela(ponto.x, ponto.y, ponto.z);
+
+//     // para cada vértice do polígono
+//     for (int i = 0; i < getNPoligonos(); i++)
+//     {
+//         Poligono &polignoAtual = Diagrama[i];
+
+//         // itere sobre as arestas do polígono atual
+//         for (int j = 0; j < polignoAtual.getNVertices(); j++)
+//         {
+//             polignoAtual.getAresta(j, P1, P2);
+
+//             // verifique se o envelope do polígono cruza a linha horizontal
+//             if ((P1.y <= ponto.y && P2.y >= ponto.y) || (P1.y >= ponto.y && P2.y <= ponto.y))
+//             {
+//                 // desenhe uma linha horizontal usando o método linhaHorizontalY da classe Ponto
+//                 Ponto ponto1(P1.x, ponto.y, P1.z);
+//                 Ponto ponto2(P2.x, ponto.y, P2.z);
+
+//                 ponto1.linhaHorizontalY(ponto2.y, ponto1.y);
+
+//                 contadorInterseccoes += HaInterseccao(P1, P2, pontoTela, Ponto(1000.0, ponto.y, 0.0)) ? 1 : 0;
+//             }
+//         }
+//     }
+//     cout << "Número de vezes que a linha horizontal cruzou um envelope: " << contadorInterseccoes << endl;
+// }
+
+void Voronoi::inclusaoPoligonosConcavos(Ponto &ponto)
+{
+    Ponto P1, P2;
+    int contadorInterseccoes = 0;
+
+    for (int i = 0; i < getNPoligonos(); i++)
+    {
+        Poligono &polignoAtual = Diagrama[i];
+        Envelope envelopeAtual = polignoAtual.getEnvelope();
+
+        P1 = Ponto(0, ponto.y);
+        P2 = Ponto(1000, ponto.y);
+
+        if (HaInterseccao(envelopeAtual.Min, envelopeAtual.Max, P1, P2))
+        {
+            contadorInterseccoes += 1;
+            cout << "     - Tem interseccção com o poligono (" << polignoAtual.getId() << ")"<< endl;
+        }
+    }
+        cout << "     *Total de Intersecções: " << contadorInterseccoes << endl;
 }
 
 void Voronoi::obtemVizinhosDasArestas()

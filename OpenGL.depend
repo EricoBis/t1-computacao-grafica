@@ -451,11 +451,11 @@
 	"ListaDeCoresRGB.h"
 	"Temporizador.h"
 
-1695586083 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/DiagramaVoronoi.cpp
+1695596781 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/DiagramaVoronoi.cpp
 	"DiagramaVoronoi.h"
 	<set>
 
-1695343800 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/DiagramaVoronoi.h
+1695598328 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/DiagramaVoronoi.h
 	<iostream>
 	<fstream>
 	"Poligono.h"
@@ -485,7 +485,7 @@
 
 1692904434 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/GL/freeglut_ext.h
 
-1692904434 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Ponto.h
+1695589404 /home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Ponto.h
 	<iostream>
 	<cmath>
 
@@ -500,7 +500,7 @@
 	<glut.h>
 	"Ponto.h"
 
-1695587386 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/ExibeVARIOSPoligonos.cpp
+1695598874 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/ExibeVARIOSPoligonos.cpp
 	<iostream>
 	<cmath>
 	<ctime>
@@ -536,7 +536,7 @@
 1692904434 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/ListaDeCoresRGB.cpp
 	"ListaDeCoresRGB.h"
 
-1692904434 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Ponto.cpp
+1695589387 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Ponto.cpp
 	"Ponto.h"
 
 1692904434 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Temporizador.cpp

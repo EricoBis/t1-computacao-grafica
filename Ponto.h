@@ -25,6 +25,7 @@ public:
     void multiplica(double x, double y, double z);
     void soma(double x, double y, double z);
     void versor();
+    void linhaHorizontalY(float y1, float y2);
     double modulo();
     void rotacionaX(float angulo);
     void rotacionaY(float angulo);

@@ -84,10 +84,15 @@ void executaTestesProximoPoligono()
     cout << endl;
     cout << "** Executando Testes **" << endl;
 
-     cout << "* Teste de Inclusão em Poligonos Convexos..." << endl;
+    cout << "* Teste de Inclusão em Poligonos Convexos..." << endl;
     poligonoAtual = Voro.inclusaoPoligonosConvexos(pontoPrincipal);
     idPoligono = poligonoAtual.getId();
-    
+
+    cout << "* Teste de Inclusão em Poligonos Concavos..." << endl;
+    cout << "    - A linha Horizontal tem intersecção com:" << endl;
+
+    Voro.inclusaoPoligonosConcavos(pontoPrincipal);
+
     cout << endl;
     cout << "---> O Ponto entrou no polígono (" << idPoligono << ") -" << endl;
 }
@@ -124,6 +129,7 @@ void ImprimeNumeracaoDosVertices(Poligono &P)
         printString(msg, aux.x, aux.y);
     }
 }
+
 // **********************************************************************
 //
 // **********************************************************************
@@ -303,12 +309,11 @@ void display(void)
     glRotatef(angulo, 0, 0, 1);
     glLineWidth(2);
 
-    // TODO - getvizinhos, quais sao os poligonos vizinhos de i?????
     Poligono P;
-    for (int i = 0; i < Voro.getNPoligonos(); i++) // desenha o diagrama getn diz quantos pol�gonos tem
+    for (int i = 0; i < Voro.getNPoligonos(); i++) // desenha o diagrama
     {
         defineCor(CoresDosPoligonos[i]);
-        P = Voro.getPoligono(i); // metodo chave que ser� bastante utilizado
+        P = Voro.getPoligono(i);
         P.pintaPoligono();
     }
     glColor3f(0, 0, 0);
@@ -322,7 +327,7 @@ void display(void)
     poligonoAtual.pintaPoligono();
 
     glColor3f(0, 0, 0);
-
+    Voro.desenhaEnvelopesPoligonos();
     glPushMatrix();
     glTranslatef(pontoPrincipal.x, pontoPrincipal.y, pontoPrincipal.z);
     desenhoPontoPrincipal.desenhaPoligono();
@@ -344,10 +349,6 @@ void display(void)
 
         glColor3f(1, 0, 0); // R, G, B  [0..1]
     }
-
-    // Mapa.desenhaVertices();
-    // glColor3f(1,0,0); // R, G, B  [0..1]
-    // DesenhaLinha(Mapa.getVertice(0), Ponto(Min.x, Max.y));
 
     glutSwapBuffers();
 }

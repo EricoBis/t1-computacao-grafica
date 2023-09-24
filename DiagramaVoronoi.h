@@ -28,12 +28,11 @@ public:
     Poligono getPoligono(int i);
     void obtemLimites(Ponto &min, Ponto &max);
     unsigned int getNPoligonos();
-    // int orientacao(Ponto p, Ponto q, Ponto r);
-    // bool intersecaoArestas(Ponto p1, Ponto p2, Ponto q1, Ponto q2);
     void geraEnvelopesPoligonos();
     void imprimePontosEnvelopes();
     void desenhaEnvelopesPoligonos();
     Poligono inclusaoPoligonosConvexos(Ponto &ponto);
+    void inclusaoPoligonosConcavos(Ponto &ponto);
     void obtemVizinhosDasArestas();
 };
 
