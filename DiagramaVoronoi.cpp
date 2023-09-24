@@ -52,10 +52,12 @@ void Voronoi::LePoligonos(const char *nome)
     Ponto A, B;
     Diagrama[0] = LeUmPoligono();
     Diagrama[0].obtemLimites(Min, Max); // obtem o envelope do poligono
+    Diagrama[0].setId(0);
     for (int i = 1; i < qtdDePoligonos; i++)
     {
         Diagrama[i] = LeUmPoligono();
         Diagrama[i].obtemLimites(A, B); // obtem o envelope do poligono
+        Diagrama[i].setId(i);
 
         Min = ObtemMinimo(A, Min);
         Max = ObtemMaximo(B, Max);

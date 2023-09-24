@@ -32,6 +32,7 @@ using namespace std;
 
 class Poligono
 {
+    int id;
     vector<Ponto> Vertices;
     Ponto Min, Max;
     Envelope envelope;
@@ -39,7 +40,11 @@ class Poligono
     std::map<int, Poligono*> vizinhosArestas;; // map de arestas
 
 public:
+
     Poligono();
+
+    void setId(int index);
+    int getId();
 
     void adicionarVizinho(int indiceAresta, Poligono* vizinho);
     Poligono* getVizinhoAresta(int indiceAresta);

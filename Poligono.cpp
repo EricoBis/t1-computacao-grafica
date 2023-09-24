@@ -16,6 +16,16 @@ Poligono::Poligono()
 {
 }
 
+void Poligono::setId(int index)
+{
+    id = index;
+}
+
+int Poligono::getId()
+{
+    return id;
+}
+
 // **********************************************************************
 // Métodos que gerenciam vizinhos de arestas.
 // **********************************************************************
