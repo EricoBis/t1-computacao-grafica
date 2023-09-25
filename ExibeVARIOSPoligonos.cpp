@@ -63,6 +63,8 @@ float angulo = 0.0;
 int idPoligono;
 Poligono poligonoAtual;
 
+int poligonosPercorridos = 0;
+
 bool pontoMoveu = false;
 Ponto pontoPrincipal;           // Ponto principal que se moverá pela tela
 Poligono desenhoPontoPrincipal; // Poligono relativo ao pontoPrincipal (demonstra graficamente o ponto)
@@ -95,10 +97,16 @@ void executaTestesProximoPoligono()
 
     cout << endl;
     cout << "---> O Ponto entrou no polígono (" << idPoligono << ") -" << endl;
+
+    poligonosPercorridos +=1;
 }
 
 void imprimeEstatisticas()
 {
+    cout << "**** Estatísticas ****" << endl;
+    cout << "- Total de Poligonos percorridos: " << poligonosPercorridos << endl;
+    cout << "- Vezes que a função HaInterseccao foi chamada: " << getContadorInt() << endl;
+    cout << "- Vezes que a função ProdVetorial foi chamada: " << getContadorProdVet() << endl;
 }
 
 // **********************************************************************
@@ -183,7 +191,7 @@ void init()
 
     //
     desenhoPontoPrincipal.LePoligono("PontoPrincipal.txt");
-    pontoPrincipal = Ponto(10, 10);
+    pontoPrincipal = Ponto(0, 0);
 
     poligonoAtual = Voro.inclusaoPoligonosConvexos(pontoPrincipal); // Encontra o poligono onde o ponto está inicialmente
     idPoligono = poligonoAtual.getId();
@@ -327,7 +335,7 @@ void display(void)
     poligonoAtual.pintaPoligono();
 
     glColor3f(0, 0, 0);
-    Voro.desenhaEnvelopesPoligonos();
+    // Voro.desenhaEnvelopesPoligonos();
     glPushMatrix();
     glTranslatef(pontoPrincipal.x, pontoPrincipal.y, pontoPrincipal.z);
     desenhoPontoPrincipal.desenhaPoligono();
@@ -391,7 +399,7 @@ void keyboard(unsigned char key, int x, int y)
         desenha = !desenha;
         break;
     case 'p':
-
+        imprimeEstatisticas();
         break;
     default:
         break;

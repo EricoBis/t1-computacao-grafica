@@ -51,4 +51,7 @@ bool HaInterseccao(Ponto k, Ponto l, Ponto m, Ponto n);
 long int getContadorInt();
 void resetContadorInt();
 
+long int getContadorProdVet();
+void resetContadorProdVet();
+
 #endif /* Ponto_hpp */

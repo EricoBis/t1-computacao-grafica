@@ -161,16 +161,20 @@ double ProdEscalar(Ponto v1, Ponto v2)
 {
     return v1.x*v2.x + v1.y*v2.y+ v1.z*v2.z;
 }
+long int contadorProdVet = 0;
 // **********************************************************************
 //    Calcula o produto vetorial entre os vetores V1 e V2
 // **********************************************************************
 void ProdVetorial (Ponto v1, Ponto v2, Ponto &vresult)
 {
+    contadorProdVet += 1;
+
     vresult.x = v1.y * v2.z - (v1.z * v2.y);
     vresult.y = v1.z * v2.x - (v1.x * v2.z);
     vresult.z = v1.x * v2.y - (v1.y * v2.x);
 }
-long int ContadorInt=0;
+
+long int contadorInterseccao=0;
 /* ********************************************************************** */
 /*                                                                        */
 /*  Calcula a interseccao entre 2 retas (no plano "XY" Z = 0)             */
@@ -206,7 +210,7 @@ bool HaInterseccao(Ponto k, Ponto l, Ponto m, Ponto n)
     int ret;
     double s,t;
     
-    ContadorInt = ContadorInt + 1;
+    contadorInterseccao += 1;
     ret = intersec2d( k,  l,  m,  n, s, t);
     if (!ret) return false;
     if (s>=0.0 && s <=1.0 && t>=0.0 && t<=1.0)
@@ -244,12 +248,26 @@ void Ponto::linhaHorizontalY(float y1, float y2)
 // **********************************************************************
 void resetContadorInt()
 {
-    ContadorInt = 0;
+    contadorInterseccao = 0;
 }
 // **********************************************************************
 //
 // **********************************************************************
 long int getContadorInt()
 {
-    return ContadorInt;
+    return contadorInterseccao;
+}
+// **********************************************************************
+//
+// **********************************************************************
+void resetContadorProdVet()
+{
+    contadorProdVet = 0;
+}
+// **********************************************************************
+//
+// **********************************************************************
+long int getContadorProdVet()
+{
+    return contadorProdVet;
 }
