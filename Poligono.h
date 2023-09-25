@@ -37,7 +37,7 @@ class Poligono
     Ponto Min, Max;
     Envelope envelope;
 
-    std::map<int, Poligono*> vizinhosArestas;; // map de arestas
+    map<int, int> vizinhosArestas;; // map de arestas
 
 public:
 
@@ -46,8 +46,8 @@ public:
     void setId(int index);
     int getId();
 
-    void adicionarVizinho(int indiceAresta, Poligono* vizinho);
-    Poligono* getVizinhoAresta(int indiceAresta);
+    void adicionarVizinho(int indiceAresta, int vizinho);
+    int getVizinhoAresta(int indiceAresta);
 
     void armazenaEnvelope();
     Envelope getEnvelope();

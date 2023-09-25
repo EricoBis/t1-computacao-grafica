@@ -60,6 +60,8 @@ bool FoiClicado = false;
 float angulo = 0.0;
 
 // Variaveis relacionadas aos testes de poligonos ---
+bool mostrarEnvelopes = false;
+
 int idPoligono;
 Poligono poligonoAtual;
 
@@ -86,19 +88,29 @@ void executaTestesProximoPoligono()
     cout << endl;
     cout << "** Executando Testes **" << endl;
 
-    cout << "* Teste de Inclusão em Poligonos Convexos..." << endl;
-    poligonoAtual = Voro.inclusaoPoligonosConvexos(pontoPrincipal);
-    idPoligono = poligonoAtual.getId();
-
     cout << "* Teste de Inclusão em Poligonos Concavos..." << endl;
     cout << "    - A linha Horizontal tem intersecção com:" << endl;
+    Poligono aux1 = Voro.inclusaoPoligonosConcavos(pontoPrincipal);
+    cout << "     *Novo poligono atual determinado pelo teste: " << aux1.getId() << endl;
+    cout << endl;
 
-    Voro.inclusaoPoligonosConcavos(pontoPrincipal);
+    cout << "* Teste de Inclusão em Poligonos Convexos..." << endl;
+    Poligono aux2 = Voro.inclusaoPoligonosConvexos(pontoPrincipal);
+    cout << "     *Novo poligono atual determinado pelo teste: " << aux2.getId() << endl;
+    cout << endl;
+
+    cout << "* Teste de Inclusão em Poligonos Convexos com Informação de Vizinhança..." << endl;
+    Poligono aux3 = Voro.inclusaoPoligonosConvexosViz(pontoPrincipal, poligonoAtual);
+    cout << "     *Novo poligono atual determinado pelo teste: " << aux3.getId() << endl;
+    cout << endl;
+
+    poligonoAtual = aux2;
+    idPoligono = poligonoAtual.getId();
 
     cout << endl;
     cout << "---> O Ponto entrou no polígono (" << idPoligono << ") -" << endl;
 
-    poligonosPercorridos +=1;
+    poligonosPercorridos += 1;
 }
 
 void imprimeEstatisticas()
@@ -107,6 +119,7 @@ void imprimeEstatisticas()
     cout << "- Total de Poligonos percorridos: " << poligonosPercorridos << endl;
     cout << "- Vezes que a função HaInterseccao foi chamada: " << getContadorInt() << endl;
     cout << "- Vezes que a função ProdVetorial foi chamada: " << getContadorProdVet() << endl;
+    cout << "id atual ----------> " << idPoligono << endl;
 }
 
 // **********************************************************************
@@ -191,7 +204,7 @@ void init()
 
     //
     desenhoPontoPrincipal.LePoligono("PontoPrincipal.txt");
-    pontoPrincipal = Ponto(0, 0);
+    pontoPrincipal = Ponto(10, 10);
 
     poligonoAtual = Voro.inclusaoPoligonosConvexos(pontoPrincipal); // Encontra o poligono onde o ponto está inicialmente
     idPoligono = poligonoAtual.getId();
@@ -335,7 +348,12 @@ void display(void)
     poligonoAtual.pintaPoligono();
 
     glColor3f(0, 0, 0);
-    // Voro.desenhaEnvelopesPoligonos();
+
+    if (mostrarEnvelopes)
+    {
+        Voro.desenhaEnvelopesPoligonos();
+    }
+
     glPushMatrix();
     glTranslatef(pontoPrincipal.x, pontoPrincipal.y, pontoPrincipal.z);
     desenhoPontoPrincipal.desenhaPoligono();
@@ -400,6 +418,9 @@ void keyboard(unsigned char key, int x, int y)
         break;
     case 'p':
         imprimeEstatisticas();
+        break;
+    case 'e':
+        mostrarEnvelopes = !mostrarEnvelopes;
         break;
     default:
         break;

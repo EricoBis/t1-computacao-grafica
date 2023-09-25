@@ -31,8 +31,10 @@ public:
     void geraEnvelopesPoligonos();
     void imprimePontosEnvelopes();
     void desenhaEnvelopesPoligonos();
+
+    Poligono inclusaoPoligonosConcavos(Ponto &ponto);
     Poligono inclusaoPoligonosConvexos(Ponto &ponto);
-    void inclusaoPoligonosConcavos(Ponto &ponto);
+    Poligono inclusaoPoligonosConvexosViz(Ponto &ponto, Poligono &poligonoAtual);
     void obtemVizinhosDasArestas();
 };
 

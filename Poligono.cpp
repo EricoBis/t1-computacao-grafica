@@ -31,17 +31,18 @@ int Poligono::getId()
 // **********************************************************************
 
 // Adiciona novo vizinho a uma aresta
-void Poligono::adicionarVizinho(int indiceAresta, Poligono* vizinho)
+void Poligono::adicionarVizinho(int indiceAresta, int vizinho)
 {
     vizinhosArestas[indiceAresta] = vizinho;
 }
 
 // Retorna poligono vizinho pelo indice da aresta
-Poligono* Poligono::getVizinhoAresta(int indiceAresta)
+int Poligono::getVizinhoAresta(int indiceAresta)
 {
     if(vizinhosArestas.find(indiceAresta) != vizinhosArestas.end())
-         return vizinhosArestas[indiceAresta];
-    return nullptr;
+        return vizinhosArestas[indiceAresta];
+
+    return -1;
 }
 
 //***********************************************************************

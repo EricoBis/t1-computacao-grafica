@@ -115,6 +115,34 @@ void Voronoi::desenhaEnvelopesPoligonos()
 }
 // **********************************************************************
 
+Poligono Voronoi::inclusaoPoligonosConcavos(Ponto &ponto)
+{
+    Ponto P1, P2;
+    Poligono result;
+    int contadorInterseccoes = 0;
+
+    for (int i = 0; i < getNPoligonos(); i++)
+    {
+        Poligono &poligonoAtual = Diagrama[i];
+        Envelope envelopeAtual = poligonoAtual.getEnvelope();
+
+        P1 = Ponto(0, ponto.y);
+        P2 = Ponto(1000, ponto.y);
+
+        if (HaInterseccao(envelopeAtual.Min, envelopeAtual.Max, P1, P2))
+        {
+            contadorInterseccoes += 1;
+            cout << "     - Tem interseccção com o poligono (" << poligonoAtual.getId() << ")"<< endl;
+            if(poligonoAtual.pontoEstaDentroPoligono(ponto))
+                result = poligonoAtual;
+        }
+    }
+        cout << "     *Total de Intersecções: " << contadorInterseccoes << endl;
+
+    return result;
+}
+
+
 Poligono Voronoi::inclusaoPoligonosConvexos(Ponto &ponto)
 {
 
@@ -134,26 +162,38 @@ Poligono Voronoi::inclusaoPoligonosConvexos(Ponto &ponto)
     return result;
 }
 
-void Voronoi::inclusaoPoligonosConcavos(Ponto &ponto)
+Poligono Voronoi::inclusaoPoligonosConvexosViz(Ponto &ponto, Poligono &poligonoAtual)
 {
+    Poligono result;
     Ponto P1, P2;
-    int contadorInterseccoes = 0;
+    int nVertices = poligonoAtual.getNVertices();
 
-    for (int i = 0; i < getNPoligonos(); i++)
+    for (int i = 0; i < nVertices; i++)
     {
-        Poligono &polignoAtual = Diagrama[i];
-        Envelope envelopeAtual = polignoAtual.getEnvelope();
+        poligonoAtual.getAresta(i, P1, P2);
+        Ponto vetorPonto = ponto - P1;
+        Ponto vetorAresta = P2 - P1;
 
-        P1 = Ponto(0, ponto.y);
-        P2 = Ponto(1000, ponto.y);
+        Ponto produtoVetorial;
+        ProdVetorial(vetorPonto, vetorAresta, produtoVetorial);
 
-        if (HaInterseccao(envelopeAtual.Min, envelopeAtual.Max, P1, P2))
+        // Se o ponto esriver à direita da aresta, está fora e passou pela aresta atual
+        if (produtoVetorial.z < 0)
         {
-            contadorInterseccoes += 1;
-            cout << "     - Tem interseccção com o poligono (" << polignoAtual.getId() << ")"<< endl;
+            int indiceNovoPoligono = poligonoAtual.getVizinhoAresta(i);
+            if (indiceNovoPoligono != -1)
+            {
+                cout << "    - O Ponto passou pela aresta: " << i << endl;
+                result = getPoligono(indiceNovoPoligono);
+            } else 
+            {
+                cout << "    - Vizinho não encontado na aresta: " << i << endl;
+            }
+            break;
         }
     }
-        cout << "     *Total de Intersecções: " << contadorInterseccoes << endl;
+    
+    return result;
 }
 
 void Voronoi::obtemVizinhosDasArestas()
@@ -180,7 +220,7 @@ void Voronoi::obtemVizinhosDasArestas()
                         if ((p1 == q1 && p2 == q2) || (p2 == q1 && p1 == q2)) // verifica a intersecao
                         {
                             // Adiciona poligono vizinho da aresta j
-                            polignoAtual.adicionarVizinho(j, &outroPoligono);
+                            polignoAtual.adicionarVizinho(j, k);
 
                             break; // não precisa verificar os demais :)
                         }
@@ -188,12 +228,12 @@ void Voronoi::obtemVizinhosDasArestas()
                 }
             }
 
-            cout << "Aresta " << j << " do poligono " << i << " tem vizinhos: ";
+            // cout << "Aresta " << j << " do poligono " << i << " tem vizinhos: ";
 
-            if (polignoAtual.getVizinhoAresta(j) != nullptr)
-                cout << "sim"
-                     << " ";
-            cout << endl;
+            // if (polignoAtual.getVizinhoAresta(j) != nullptr)
+            //     cout << "sim"
+            //          << " ";
+            // cout << endl;
         }
     }
 }
