@@ -68,6 +68,7 @@ Poligono poligonoAtual;
 int poligonosPercorridos = 0;
 
 bool pontoMoveu = false;
+double distanciaMovimento = 0.3;
 Ponto pontoPrincipal;           // Ponto principal que se moverá pela tela
 Poligono desenhoPontoPrincipal; // Poligono relativo ao pontoPrincipal (demonstra graficamente o ponto)
 // --------------------------------------------------
@@ -434,19 +435,19 @@ void arrow_keys(int a_keys, int x, int y)
     switch (a_keys)
     {
     case GLUT_KEY_UP: // Se pressionar UP
-        pontoPrincipal.soma(0, 0.1, 0);
+        pontoPrincipal.soma(0, distanciaMovimento, 0);
         pontoMoveu = true;
         break;
     case GLUT_KEY_DOWN: // Se pressionar DOWN
-        pontoPrincipal.soma(0, -0.1, 0);
+        pontoPrincipal.soma(0, -distanciaMovimento, 0);
         pontoMoveu = true;
         break;
     case GLUT_KEY_LEFT: // Se pressionar LEFT
-        pontoPrincipal.soma(-0.1, 0, 0);
+        pontoPrincipal.soma(-distanciaMovimento, 0, 0);
         pontoMoveu = true;
         break;
     case GLUT_KEY_RIGHT: // Se pressionar RIGHT
-        pontoPrincipal.soma(0.1, 0, 0);
+        pontoPrincipal.soma(distanciaMovimento, 0, 0);
         pontoMoveu = true;
     default:
         break;

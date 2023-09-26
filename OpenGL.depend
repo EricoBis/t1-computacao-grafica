@@ -451,7 +451,7 @@
 	"ListaDeCoresRGB.h"
 	"Temporizador.h"
 
-1695735075 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/DiagramaVoronoi.cpp
+1695767904 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/DiagramaVoronoi.cpp
 	"DiagramaVoronoi.h"
 	<set>
 
@@ -500,7 +500,7 @@
 	<glut.h>
 	"Ponto.h"
 
-1695677786 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/ExibeVARIOSPoligonos.cpp
+1695770367 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/ExibeVARIOSPoligonos.cpp
 	<iostream>
 	<cmath>
 	<ctime>
@@ -542,7 +542,7 @@
 1692904434 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Temporizador.cpp
 	"Temporizador.h"
 
-1695661569 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Poligono.cpp
+1695767700 source:/home/ericobis/Documentos/GithubProjects/ComputacaoGrafica/t1-computacao-grafica/Poligono.cpp
 	<iostream>
 	<fstream>
 	"Poligono.h"

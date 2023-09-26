@@ -144,7 +144,7 @@ Poligono Voronoi::inclusaoPoligonosConcavos(Ponto &ponto)
                 result = poligonoAtual;
         }
     }
-        cout << "     *Total de Intersecções: " << contadorInterseccoes << endl;
+        cout << "     *Total de Intersecções com polígonos: " << contadorInterseccoes << endl;
 
     return result;
 }
