@@ -117,7 +117,7 @@ void Voronoi::desenhaEnvelopesPoligonos()
 
 Poligono Voronoi::inclusaoPoligonosConcavos(Ponto &ponto)
 {
-    Ponto P1, P2;
+    Ponto Pinicial, Pfinal;
     Poligono result;
     int contadorInterseccoes = 0;
 
@@ -126,10 +126,17 @@ Poligono Voronoi::inclusaoPoligonosConcavos(Ponto &ponto)
         Poligono &poligonoAtual = Diagrama[i];
         Envelope envelopeAtual = poligonoAtual.getEnvelope();
 
-        P1 = Ponto(0, ponto.y);
-        P2 = Ponto(1000, ponto.y);
+        // Pontos da reta horizontal
+        Pinicial = Ponto(0, ponto.y);
+        Pfinal = Ponto(1000, ponto.y);
 
-        if (HaInterseccao(envelopeAtual.Min, envelopeAtual.Max, P1, P2))
+        // Gera Pontos do lado esquerdo e direto do envelope
+        Ponto esquerdoMin = envelopeAtual.Min;
+        Ponto esquerdoMax = Ponto(envelopeAtual.Min.x, envelopeAtual.Max.y);
+        Ponto direitoMin = Ponto(envelopeAtual.Max.x, envelopeAtual.Min.y);
+        Ponto direitoMax = envelopeAtual.Max;
+
+        if (HaInterseccao(esquerdoMin, esquerdoMax, Pinicial, Pfinal) || HaInterseccao(direitoMin, direitoMax, Pinicial, Pfinal))
         {
             contadorInterseccoes += 1;
             cout << "     - Tem interseccção com o poligono (" << poligonoAtual.getId() << ")"<< endl;

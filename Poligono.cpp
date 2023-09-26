@@ -191,8 +191,8 @@ bool Poligono::pontoEstaDentroPoligono(Ponto &ponto)
     for (int i = 0; i < size; i++)
     {
         getAresta(i, P1, P2);
-        Ponto vetorPonto = ponto - P1;
         Ponto vetorAresta = P2 - P1;
+        Ponto vetorPonto = ponto - P1;
 
         Ponto produtoVetorial;
         ProdVetorial(vetorPonto, vetorAresta, produtoVetorial);
