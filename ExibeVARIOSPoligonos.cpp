@@ -60,6 +60,8 @@ bool FoiClicado = false;
 float angulo = 0.0;
 
 // Variaveis relacionadas aos testes de poligonos ---
+char nomeArqPoligonos[] = "100_polygons.txt";
+
 bool mostrarEnvelopes = false;
 
 int idPoligono;
@@ -68,7 +70,7 @@ Poligono poligonoAtual;
 int poligonosPercorridos = 0;
 
 bool pontoMoveu = false;
-double distanciaMovimento = 0.3;
+double distanciaMovimento = 0.1;
 Ponto pontoPrincipal;           // Ponto principal que se moverá pela tela
 Poligono desenhoPontoPrincipal; // Poligono relativo ao pontoPrincipal (demonstra graficamente o ponto)
 // --------------------------------------------------
@@ -180,7 +182,7 @@ void init()
     // Define a cor do fundo da tela (AZUL)
     glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
 
-    Voro.LePoligonos("ListaDePoligonos-V2.txt"); // le o arquivo com os poligonos
+    Voro.LePoligonos(nomeArqPoligonos); // le o arquivo com os poligonos
     Voro.obtemLimites(Min, Max);                 // calcula os limites, para ajustar a janela
     Voro.obtemVizinhosDasArestas();              // calcula os vizinhos
     Voro.geraEnvelopesPoligonos();               // gera envelopes para cada poligono
@@ -193,7 +195,7 @@ void init()
 
     for (int i = 0; i < Voro.getNPoligonos(); i++) // sorteia as cores dos poligonos
     {
-        CoresDosPoligonos[i] = i * 2; // rand()%80;
+        CoresDosPoligonos[i] = rand()%80;
     }
     // Ajusta a largura da janela l�gica
     // em fun��o do tamanho dos pol�gonos
@@ -205,7 +207,7 @@ void init()
 
     //
     desenhoPontoPrincipal.LePoligono("PontoPrincipal.txt");
-    pontoPrincipal = Ponto(10, 10);
+    pontoPrincipal = Ponto(0, 0);
 
     poligonoAtual = Voro.inclusaoPoligonosConvexos(pontoPrincipal); // Encontra o poligono onde o ponto está inicialmente
     idPoligono = poligonoAtual.getId();

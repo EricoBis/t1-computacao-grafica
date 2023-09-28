@@ -1,3 +1,4 @@
+
 #Adapted by: Carlo Smaniotto Mantovani
 #Libraries: shapely, numpy, matplotlib, scipy
 #Install: pip install shapely numpy matplotlib scipy
@@ -10,10 +11,10 @@ from shapely.geometry import Polygon
 import numpy as np
 
 ENABLE_RANDOM_POINTS = True #set to True to generate random points, set to False to read points from file
-polygon_counter = 40 #number of polygons to generate
+polygon_counter = 100 #number of polygons to generate
 increase_in_boundary = 0.02 #increase this to increase the size of the window boundary, lower it if you want to decrease it. 0.02 = 2% increase
-max_x_coordinate = 1000 #max possible x coordinate for the point generation
-max_y_coordinate = 1000 #max possible y coordinate for the point generation
+max_x_coordinate = 50 #max possible x coordinate for the point generation
+max_y_coordinate = 50 #max possible y coordinate for the point generation
 #max_x_coordinate = max_y_coordinate for a square boundary (best results)
 
 
