@@ -52,7 +52,7 @@ Voronoi Voro;
 int *CoresDosPoligonos;
 
 // Limites logicos da area de desenho
-Ponto Min, Max, PontoClicado;
+Ponto Min, Max, MinVoro, MaxVoro, PontoClicado;
 
 bool desenha = false;
 bool FoiClicado = false;
@@ -182,12 +182,13 @@ void init()
     // Define a cor do fundo da tela (AZUL)
     glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
 
-    Voro.LePoligonos(nomeArqPoligonos);          // le o arquivo com os poligonos
-    Voro.obtemLimites(Min, Max);                 // calcula os limites, para ajustar a janela
-    Voro.obtemVizinhosDasArestas();              // calcula os vizinhos
-    Voro.geraEnvelopesPoligonos();               // gera envelopes para cada poligono
+    Voro.LePoligonos(nomeArqPoligonos); // le o arquivo com os poligonos
+    Voro.obtemLimites(Min, Max);        // calcula os limites, para ajustar a janela
+    Voro.obtemVizinhosDasArestas();     // calcula os vizinhos
+    Voro.geraEnvelopesPoligonos();      // gera envelopes para cada poligono
     Voro.imprimePontosEnvelopes();
 
+    cout << "teste" << endl;
     Min.imprime("Minimo:", "\n");
     Max.imprime("Maximo:", "\n");
 
@@ -195,8 +196,13 @@ void init()
 
     for (int i = 0; i < Voro.getNPoligonos(); i++) // sorteia as cores dos poligonos
     {
-        CoresDosPoligonos[i] = rand()%80;
+        CoresDosPoligonos[i] = rand() % 80;
     }
+
+    // Guarda o Min e Max do diagrama para uso posterior
+    MinVoro = Min;
+    MaxVoro = Max;
+
     // Ajusta a largura da janela l�gica
     // em fun��o do tamanho dos pol�gonos
     Ponto Largura;
@@ -425,26 +431,41 @@ void keyboard(unsigned char key, int x, int y)
 // **********************************************************************
 void arrow_keys(int a_keys, int x, int y)
 {
+    Ponto novoPonto = pontoPrincipal;
     switch (a_keys)
     {
     case GLUT_KEY_UP: // Se pressionar UP
-        pontoPrincipal.soma(0, distanciaMovimento, 0);
+        novoPonto.soma(0, distanciaMovimento, 0);
         pontoMoveu = true;
         break;
     case GLUT_KEY_DOWN: // Se pressionar DOWN
-        pontoPrincipal.soma(0, -distanciaMovimento, 0);
+        novoPonto.soma(0, -distanciaMovimento, 0);
         pontoMoveu = true;
         break;
     case GLUT_KEY_LEFT: // Se pressionar LEFT
-        pontoPrincipal.soma(-distanciaMovimento, 0, 0);
+        novoPonto.soma(-distanciaMovimento, 0, 0);
         pontoMoveu = true;
         break;
     case GLUT_KEY_RIGHT: // Se pressionar RIGHT
-        pontoPrincipal.soma(distanciaMovimento, 0, 0);
+        novoPonto.soma(distanciaMovimento, 0, 0);
         pontoMoveu = true;
     default:
         break;
     }
+
+    // Verifica se o novo ponto saiu dos limites
+    if (novoPonto.x < MinVoro.x)
+        novoPonto.x = MinVoro.x;
+    else if (novoPonto.x > MaxVoro.x)
+        novoPonto.x = MaxVoro.x;
+
+    if (novoPonto.y < MinVoro.y)
+        novoPonto.y = MinVoro.y;
+    else if (novoPonto.y > MaxVoro.y)
+        novoPonto.y = MaxVoro.y;
+
+    // Atribui o novo ponto ao ponto principal
+    pontoPrincipal = novoPonto;
 }
 // **********************************************************************
 // Esta fun��o captura o clique do botao direito do mouse sobre a �rea de
