@@ -182,7 +182,7 @@ void init()
     // Define a cor do fundo da tela (AZUL)
     glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
 
-    Voro.LePoligonos(nomeArqPoligonos); // le o arquivo com os poligonos
+    Voro.LePoligonos(nomeArqPoligonos);          // le o arquivo com os poligonos
     Voro.obtemLimites(Min, Max);                 // calcula os limites, para ajustar a janela
     Voro.obtemVizinhosDasArestas();              // calcula os vizinhos
     Voro.geraEnvelopesPoligonos();               // gera envelopes para cada poligono
@@ -238,15 +238,6 @@ void animate()
 
         glutPostRedisplay();
     }
-
-    // if (TempoTotal > 50.0)
-    // {
-    //     cout << "Tempo Acumulado: " << TempoTotal << " segundos. ";
-    //     cout << "Nros de Frames sem desenho: " << nFrames << endl;
-    //     cout << "FPS(sem desenho): " << nFrames / TempoTotal << endl;
-    //     TempoTotal = 0;
-    //     nFrames = 0;
-    // }
 }
 
 // **********************************************************************

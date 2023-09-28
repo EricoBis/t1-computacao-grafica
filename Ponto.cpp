@@ -218,34 +218,7 @@ bool HaInterseccao(Ponto k, Ponto l, Ponto m, Ponto n)
     else return false;
 
 }
-// // **********************************************************************
-// //
-// // **********************************************************************
-// void Ponto::linhaHorizontalY(float y1, float y2)
-// {
-//     // Certifique-se de que o plano é o plano XY (Z = 0)
-//     if (z != 0) {
-//         cout << "Erro: O plano Z não é zero. Não é possível criar uma linha horizontal no plano XY." << endl;
-//         return;
-//     }
 
-//     // Verifique se y1 é menor ou igual a y2
-//     if (y1 > y2) {
-//         swap(y1, y2);
-//     }
-
-//     // Crie a linha horizontal com coordenadas y1 e y2
-//     for (float y = y1; y <= y2; y++) {
-//         Ponto ponto(x, y, z);
-//         ponto.imprime();
-//         cout << " ";
-//     }
-
-//     cout << endl;
-// }
-// **********************************************************************
-//
-// **********************************************************************
 void resetContadorInt()
 {
     contadorInterseccao = 0;
