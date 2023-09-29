@@ -33,6 +33,7 @@ public:
     void geraEnvelopesPoligonos();
     void imprimePontosEnvelopes();
     void desenhaEnvelopesPoligonos();
+    void desenhaEnvelopesInterseccao();
 
     void inserePoligonoInterseccao(Poligono &poligono);
     void desenhaPoligonosInterseccao();

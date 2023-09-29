@@ -64,6 +64,8 @@ char nomeArqPoligonos[] = "40_polygons.txt";
 
 bool diagramaMonoCromatico = false;
 bool mostrarEnvelopes = false;
+bool mostrarEnvelopesInterseccao = false;
+bool linhaHorizVerde = false;
 
 int idPoligono;
 Poligono poligonoAtual;
@@ -197,7 +199,7 @@ void init()
 
     for (int i = 0; i < Voro.getNPoligonos(); i++) // sorteia as cores dos poligonos
     {
-        CoresDosPoligonos[i] = i *2;//rand() % 80;
+        CoresDosPoligonos[i] = i * 2; // rand() % 80;
     }
 
     // Guarda o Min e Max do diagrama para uso posterior
@@ -335,8 +337,8 @@ void display(void)
     Poligono P;
     for (int i = 0; i < Voro.getNPoligonos(); i++) // desenha o diagrama
     {
-        if(diagramaMonoCromatico)
-             glColor3f(0, 0, 0);
+        if (diagramaMonoCromatico)
+            glColor3f(0, 0, 0);
         else
             defineCor(CoresDosPoligonos[i]);
 
@@ -348,28 +350,37 @@ void display(void)
     glColor3f(1, 1, 1);
     poligonoAtual.pintaPoligono();
 
-    if(diagramaMonoCromatico)
+    if (diagramaMonoCromatico)
         glColor3f(1, 1, 1);
     else
         glColor3f(0, 0, 0);
-    
+
     for (int i = 0; i < Voro.getNPoligonos(); i++) // desenha bordas dos poligonos
     {
         P = Voro.getPoligono(i);
         P.desenhaPoligono();
     }
 
-    glColor3f(0, 0, 0);
+    //---
+    if (diagramaMonoCromatico)
+        glColor3f(0, 0, 1);
+    else
+        glColor3f(0, 0, 0);
 
     if (mostrarEnvelopes)
-    {
-        if(diagramaMonoCromatico)
-            glColor3f(0, 0, 1);
         Voro.desenhaEnvelopesPoligonos();
+    if (mostrarEnvelopesInterseccao)
+    {
+        mostrarEnvelopes = false;
+        Voro.desenhaEnvelopesInterseccao();
     }
+    //---
 
     glPushMatrix();
-    glColor3f(0, 0, 0.6); // R, G, B  [0..1]
+    if(linhaHorizVerde)
+        glColor3f(0, 9, 0); // R, G, B  [0..1]
+    else
+        glColor3f(0, 0, 0.6); // R, G, B  [0..1]
     Ponto EsqVoro, DirVoro;
     EsqVoro.x = MinVoro.x;
     EsqVoro.y = pontoPrincipal.y;
@@ -448,8 +459,14 @@ void keyboard(unsigned char key, int x, int y)
     case 'e':
         mostrarEnvelopes = !mostrarEnvelopes;
         break;
-     case 'm':
+    case 'r':
+        mostrarEnvelopesInterseccao = !mostrarEnvelopesInterseccao;
+        break;
+    case 'm':
         diagramaMonoCromatico = !diagramaMonoCromatico;
+        break;
+    case 'v':
+        linhaHorizVerde = !linhaHorizVerde;
         break;
     default:
         break;

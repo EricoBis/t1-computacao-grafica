@@ -113,6 +113,13 @@ void Voronoi::desenhaEnvelopesPoligonos()
         Diagrama[i].getEnvelope().Desenha();
     }
 }
+void Voronoi::desenhaEnvelopesInterseccao()
+{
+    for (int i = 0; i < PoligonosInterseccao.size(); i++)
+    {
+        PoligonosInterseccao[i].getEnvelope().Desenha();
+    }
+}
 // **********************************************************************
 
 void Voronoi::inserePoligonoInterseccao(Poligono &poligono)
