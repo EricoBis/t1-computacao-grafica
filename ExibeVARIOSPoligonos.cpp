@@ -62,6 +62,7 @@ float angulo = 0.0;
 // Variaveis relacionadas aos testes de poligonos ---
 char nomeArqPoligonos[] = "40_polygons.txt";
 
+bool diagramaMonoCromatico = false;
 bool mostrarEnvelopes = false;
 
 int idPoligono;
@@ -334,8 +335,11 @@ void display(void)
     Poligono P;
     for (int i = 0; i < Voro.getNPoligonos(); i++) // desenha o diagrama
     {
-        defineCor(CoresDosPoligonos[i]);
-        // glColor3f(0, 0, 0);
+        if(diagramaMonoCromatico)
+             glColor3f(0, 0, 0);
+        else
+            defineCor(CoresDosPoligonos[i]);
+
         P = Voro.getPoligono(i);
         P.pintaPoligono();
     }
@@ -344,8 +348,11 @@ void display(void)
     glColor3f(1, 1, 1);
     poligonoAtual.pintaPoligono();
 
-    glColor3f(0, 0, 0);
-    //glColor3f(1, 1, 1);
+    if(diagramaMonoCromatico)
+        glColor3f(1, 1, 1);
+    else
+        glColor3f(0, 0, 0);
+    
     for (int i = 0; i < Voro.getNPoligonos(); i++) // desenha bordas dos poligonos
     {
         P = Voro.getPoligono(i);
@@ -356,6 +363,8 @@ void display(void)
 
     if (mostrarEnvelopes)
     {
+        if(diagramaMonoCromatico)
+            glColor3f(0, 0, 1);
         Voro.desenhaEnvelopesPoligonos();
     }
 
@@ -438,6 +447,9 @@ void keyboard(unsigned char key, int x, int y)
         break;
     case 'e':
         mostrarEnvelopes = !mostrarEnvelopes;
+        break;
+     case 'm':
+        diagramaMonoCromatico = !diagramaMonoCromatico;
         break;
     default:
         break;

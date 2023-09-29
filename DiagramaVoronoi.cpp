@@ -121,7 +121,7 @@ void Voronoi::inserePoligonoInterseccao(Poligono &poligono)
 }
 
 void Voronoi::desenhaPoligonosInterseccao(){
-    glColor3f(0.8f, 0.8f, 0.8f); // Tom de cinza quase branco
+    glColor3f(0.9f, 0.9f, 0.9f); // Tom de cinza quase branco
     for (int i = 0; i < PoligonosInterseccao.size(); i++)
     {
         PoligonosInterseccao[i].pintaPoligono();
