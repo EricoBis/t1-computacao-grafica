@@ -60,7 +60,7 @@ bool FoiClicado = false;
 float angulo = 0.0;
 
 // Variaveis relacionadas aos testes de poligonos ---
-char nomeArqPoligonos[] = "100_polygons.txt";
+char nomeArqPoligonos[] = "40_polygons.txt";
 
 bool mostrarEnvelopes = false;
 
@@ -180,7 +180,7 @@ void init()
 {
     srand(0);
     // Define a cor do fundo da tela (AZUL)
-    glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
+    glClearColor(0.0f, 0.0f, 0.3f, 0.3f);
 
     Voro.LePoligonos(nomeArqPoligonos); // le o arquivo com os poligonos
     Voro.obtemLimites(Min, Max);        // calcula os limites, para ajustar a janela
@@ -196,7 +196,7 @@ void init()
 
     for (int i = 0; i < Voro.getNPoligonos(); i++) // sorteia as cores dos poligonos
     {
-        CoresDosPoligonos[i] = rand() % 80;
+        CoresDosPoligonos[i] = i *2;//rand() % 80;
     }
 
     // Guarda o Min e Max do diagrama para uso posterior
@@ -216,6 +216,7 @@ void init()
     pontoPrincipal = Ponto(0, 0);
 
     poligonoAtual = Voro.inclusaoPoligonosConvexos(pontoPrincipal); // Encontra o poligono onde o ponto está inicialmente
+    Voro.inclusaoPoligonosConcavos(pontoPrincipal);
     idPoligono = poligonoAtual.getId();
     //
 }
@@ -334,18 +335,22 @@ void display(void)
     for (int i = 0; i < Voro.getNPoligonos(); i++) // desenha o diagrama
     {
         defineCor(CoresDosPoligonos[i]);
+        // glColor3f(0, 0, 0);
         P = Voro.getPoligono(i);
         P.pintaPoligono();
     }
+
+    Voro.desenhaPoligonosInterseccao();
+    glColor3f(1, 1, 1);
+    poligonoAtual.pintaPoligono();
+
     glColor3f(0, 0, 0);
+    //glColor3f(1, 1, 1);
     for (int i = 0; i < Voro.getNPoligonos(); i++) // desenha bordas dos poligonos
     {
         P = Voro.getPoligono(i);
         P.desenhaPoligono();
     }
-
-    glColor3f(1, 1, 1);
-    poligonoAtual.pintaPoligono();
 
     glColor3f(0, 0, 0);
 
@@ -355,8 +360,20 @@ void display(void)
     }
 
     glPushMatrix();
+    glColor3f(0, 0, 0.6); // R, G, B  [0..1]
+    Ponto EsqVoro, DirVoro;
+    EsqVoro.x = MinVoro.x;
+    EsqVoro.y = pontoPrincipal.y;
+    DirVoro.x = MaxVoro.x;
+    DirVoro.y = pontoPrincipal.y;
+    DesenhaLinha(DirVoro, EsqVoro);
+    glPopMatrix();
+
+    glPushMatrix();
+    glColor3f(0, 0, 0);
     glTranslatef(pontoPrincipal.x, pontoPrincipal.y, pontoPrincipal.z);
     desenhoPontoPrincipal.desenhaPoligono();
+    desenhoPontoPrincipal.pintaPoligono();
     glPopMatrix();
 
     if (desenha)

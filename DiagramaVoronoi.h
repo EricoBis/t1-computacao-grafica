@@ -19,6 +19,8 @@ using namespace std;
 class Voronoi
 {
     Poligono Diagrama[1000];
+    vector<Poligono> PoligonosInterseccao;
+
     unsigned int qtdDePoligonos;
     Ponto Min, Max;
 public:
@@ -31,6 +33,9 @@ public:
     void geraEnvelopesPoligonos();
     void imprimePontosEnvelopes();
     void desenhaEnvelopesPoligonos();
+
+    void inserePoligonoInterseccao(Poligono &poligono);
+    void desenhaPoligonosInterseccao();
 
     Poligono inclusaoPoligonosConcavos(Ponto &ponto);
     Poligono inclusaoPoligonosConvexos(Ponto &ponto);

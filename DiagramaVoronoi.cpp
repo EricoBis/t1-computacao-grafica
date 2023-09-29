@@ -115,11 +115,25 @@ void Voronoi::desenhaEnvelopesPoligonos()
 }
 // **********************************************************************
 
+void Voronoi::inserePoligonoInterseccao(Poligono &poligono)
+{
+    PoligonosInterseccao.push_back(poligono);
+}
+
+void Voronoi::desenhaPoligonosInterseccao(){
+    glColor3f(0.8f, 0.8f, 0.8f); // Tom de cinza quase branco
+    for (int i = 0; i < PoligonosInterseccao.size(); i++)
+    {
+        PoligonosInterseccao[i].pintaPoligono();
+    }
+}
+
 Poligono Voronoi::inclusaoPoligonosConcavos(Ponto &ponto)
 {
     Ponto Pinicial, Pfinal;
     Poligono result;
     int contadorInterseccoes = 0;
+    PoligonosInterseccao.clear();
 
     for (int i = 0; i < getNPoligonos(); i++)
     {
@@ -139,6 +153,8 @@ Poligono Voronoi::inclusaoPoligonosConcavos(Ponto &ponto)
         if (HaInterseccao(esquerdoMin, esquerdoMax, Pinicial, Pfinal) || HaInterseccao(direitoMin, direitoMax, Pinicial, Pfinal))
         {
             contadorInterseccoes += 1;
+            inserePoligonoInterseccao(poligonoAtual);
+
             cout << "     - Tem interseccção com o poligono (" << poligonoAtual.getId() << ")"<< endl;
             if(poligonoAtual.pontoEstaDentroPoligono(ponto))
                 result = poligonoAtual;
