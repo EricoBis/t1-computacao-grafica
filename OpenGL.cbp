@@ -61,12 +61,11 @@
 			<Add option="-Wno-narrowing" />
 			<Add option="-Wno-deprecated-declarations" />
 		</Compiler>
-		<Unit filename="1000-polygons.txt" />
-		<Unit filename="30_polygons.txt" />
+		<Unit filename="20_polygons.txt" />
 		<Unit filename="40_polygons.txt" />
-		<Unit filename="40_polygonsv2.txt" />
-		<Unit filename="40_polygonsv3.txt" />
-		<Unit filename="500_polygons.txt" />
+		<Unit filename="50x50_100_polygons.txt" />
+		<Unit filename="50x50_20_polygons.txt" />
+		<Unit filename="50x50_500_polygons.txt" />
 		<Unit filename="DiagramaVoronoi.cpp" />
 		<Unit filename="DiagramaVoronoi.h" />
 		<Unit filename="Envelope.cpp" />
@@ -76,7 +75,6 @@
 		</Unit>
 		<Unit filename="ListaDeCoresRGB.cpp" />
 		<Unit filename="ListaDeCoresRGB.h" />
-		<Unit filename="ListaDePoligonos-V2.txt" />
 		<Unit filename="Poligono.cpp" />
 		<Unit filename="Poligono.h" />
 		<Unit filename="Ponto.cpp" />

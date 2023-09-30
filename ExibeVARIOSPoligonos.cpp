@@ -195,7 +195,6 @@ void init()
     Voro.geraEnvelopesPoligonos();      // gera envelopes para cada poligono
     Voro.imprimePontosEnvelopes();
 
-    cout << "teste" << endl;
     Min.imprime("Minimo:", "\n");
     Max.imprime("Maximo:", "\n");
 
@@ -203,7 +202,7 @@ void init()
 
     for (int i = 0; i < Voro.getNPoligonos(); i++) // sorteia as cores dos poligonos
     {
-        CoresDosPoligonos[i] = i * 2; // rand() % 80;
+        CoresDosPoligonos[i] = rand() % 80;
     }
 
     // Guarda o Min e Max do diagrama para uso posterior
