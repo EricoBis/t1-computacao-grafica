@@ -120,7 +120,20 @@ void Voronoi::desenhaEnvelopesInterseccao()
         PoligonosInterseccao[i].getEnvelope().Desenha();
     }
 }
+void Voronoi::desenhaEnvelopesComPonto()
+{
+    for (int i = 0; i < EnvelopesComPonto.size(); i++)
+    {
+        EnvelopesComPonto[i].Desenha();
+    }
+    
+}
 // **********************************************************************
+void Voronoi::desenhaArestaSaida()
+{
+    glColor3f(1, 0, 0);
+    poligonoAnterior.pintaAresta(arestaSaida);
+}
 
 void Voronoi::inserePoligonoInterseccao(Poligono &poligono)
 {
@@ -148,16 +161,14 @@ Poligono Voronoi::inclusaoPoligonosConcavos(Ponto &ponto)
         Envelope envelopeAtual = poligonoAtual.getEnvelope();
 
         // Pontos da reta horizontal
-        Pinicial = Ponto(0, ponto.y);
-        Pfinal = Ponto(1000, ponto.y);
+        Pinicial = Ponto(Min.x, ponto.y);
+        Pfinal = Ponto(Max.x, ponto.y);
 
-        // Gera Pontos do lado esquerdo e direto do envelope
-        Ponto esquerdoMin = envelopeAtual.Min;
-        Ponto esquerdoMax = Ponto(envelopeAtual.Min.x, envelopeAtual.Max.y);
-        Ponto direitoMin = Ponto(envelopeAtual.Max.x, envelopeAtual.Min.y);
-        Ponto direitoMax = envelopeAtual.Max;
+        // Gera Pontos do direto do envelope
+        Ponto envDireitoMin = Ponto(envelopeAtual.Max.x, envelopeAtual.Min.y);
+        Ponto envDireitoMax = envelopeAtual.Max;
 
-        if (HaInterseccao(esquerdoMin, esquerdoMax, Pinicial, Pfinal) || HaInterseccao(direitoMin, direitoMax, Pinicial, Pfinal))
+        if (HaInterseccao(envDireitoMin, envDireitoMax, Pinicial, Pfinal))
         {
             contadorInterseccoes += 1;
             inserePoligonoInterseccao(poligonoAtual);
@@ -175,17 +186,18 @@ Poligono Voronoi::inclusaoPoligonosConcavos(Ponto &ponto)
 
 Poligono Voronoi::inclusaoPoligonosConvexos(Ponto &ponto)
 {
-
+    EnvelopesComPonto.clear();
     Poligono result;
     for (int i = 0; i < getNPoligonos(); i++)
     {
         Poligono poligonoAtual = Diagrama[i];
-        if (poligonoAtual.getEnvelope().pontoEstaDentro(ponto))
+        Envelope envelopeAtual = poligonoAtual.getEnvelope();
+        if (envelopeAtual.pontoEstaDentro(ponto))
         {
+            EnvelopesComPonto.push_back(envelopeAtual);
             if (poligonoAtual.pontoEstaDentroPoligono(ponto))
             {
                 result = poligonoAtual;
-                break;
             }
         }
     }
@@ -214,15 +226,19 @@ Poligono Voronoi::inclusaoPoligonosConvexosViz(Ponto &ponto, Poligono &poligonoA
             if (indiceNovoPoligono != -1)
             {
                 cout << "    - O Ponto passou pela aresta: " << i << endl;
+
+                poligonoAnterior = poligonoAtual;
+                arestaSaida = i;
+
                 result = getPoligono(indiceNovoPoligono);
-            } else 
+            } else
             {
                 cout << "    - Vizinho não encontado na aresta: " << i << endl;
             }
             break;
         }
     }
-    
+
     return result;
 }
 

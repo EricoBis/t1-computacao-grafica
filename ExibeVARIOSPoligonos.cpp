@@ -60,12 +60,16 @@ bool FoiClicado = false;
 float angulo = 0.0;
 
 // Variaveis relacionadas aos testes de poligonos ---
-char nomeArqPoligonos[] = "40_polygons.txt";
+char nomeArqPoligonos[] = "20_polygons.txt";
 
-bool diagramaMonoCromatico = false;
-bool mostrarEnvelopes = false;
-bool mostrarEnvelopesInterseccao = false;
-bool linhaHorizVerde = false;
+bool diagramaMonoCromatico = false; // m
+bool mostrarEnvelopes = false; // e
+bool linhaHorizVerde = false; // v
+
+bool mostrarEnvelopesInterseccao = false; // r
+bool mostrarPoligonosInterseccao = false; // f 
+
+bool mostrarEnvelopesComPonto = false; // c
 
 int idPoligono;
 Poligono poligonoAtual;
@@ -110,7 +114,7 @@ void executaTestesProximoPoligono()
     cout << "     *Novo poligono atual determinado pelo teste: " << aux3.getId() << endl;
     cout << endl;
 
-    poligonoAtual = aux2;
+    poligonoAtual = aux3;
     idPoligono = poligonoAtual.getId();
 
     cout << endl;
@@ -219,7 +223,6 @@ void init()
     pontoPrincipal = Ponto(0, 0);
 
     poligonoAtual = Voro.inclusaoPoligonosConvexos(pontoPrincipal); // Encontra o poligono onde o ponto está inicialmente
-    Voro.inclusaoPoligonosConcavos(pontoPrincipal);
     idPoligono = poligonoAtual.getId();
     //
 }
@@ -346,8 +349,10 @@ void display(void)
         P.pintaPoligono();
     }
 
-    Voro.desenhaPoligonosInterseccao();
+    if(mostrarPoligonosInterseccao)
+        Voro.desenhaPoligonosInterseccao();
     glColor3f(1, 1, 1);
+
     poligonoAtual.pintaPoligono();
 
     if (diagramaMonoCromatico)
@@ -360,6 +365,7 @@ void display(void)
         P = Voro.getPoligono(i);
         P.desenhaPoligono();
     }
+    Voro.desenhaArestaSaida();
 
     //---
     if (diagramaMonoCromatico)
@@ -373,6 +379,11 @@ void display(void)
     {
         mostrarEnvelopes = false;
         Voro.desenhaEnvelopesInterseccao();
+    }
+    if(mostrarEnvelopesComPonto)
+    {
+        glColor3f(0, 1, 0);
+        Voro.desenhaEnvelopesComPonto();
     }
     //---
 
@@ -459,6 +470,9 @@ void keyboard(unsigned char key, int x, int y)
     case 'e':
         mostrarEnvelopes = !mostrarEnvelopes;
         break;
+    case 'f':
+        mostrarPoligonosInterseccao = !mostrarPoligonosInterseccao;
+        break;
     case 'r':
         mostrarEnvelopesInterseccao = !mostrarEnvelopesInterseccao;
         break;
@@ -467,6 +481,9 @@ void keyboard(unsigned char key, int x, int y)
         break;
     case 'v':
         linhaHorizVerde = !linhaHorizVerde;
+        break;
+    case 'c':
+        mostrarEnvelopesComPonto = !mostrarEnvelopesComPonto;
         break;
     default:
         break;

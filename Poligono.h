@@ -57,6 +57,7 @@ public:
     void insereVertice(Ponto);
     void insereVertice(Ponto p, int pos);
     void desenhaPoligono();
+    void pintaAresta(int indice);
     void desenhaVertices();
     void pintaPoligono();
     void imprime();

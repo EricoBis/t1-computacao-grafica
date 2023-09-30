@@ -39,7 +39,7 @@ void Poligono::adicionarVizinho(int indiceAresta, int vizinho)
 // Retorna poligono vizinho pelo indice da aresta
 int Poligono::getVizinhoAresta(int indiceAresta)
 {
-    if(vizinhosArestas.find(indiceAresta) != vizinhosArestas.end())
+    if (vizinhosArestas.find(indiceAresta) != vizinhosArestas.end())
         return vizinhosArestas[indiceAresta];
 
     return -1;
@@ -102,6 +102,19 @@ void Poligono::desenhaPoligono()
         glVertex3f(Vertices[i].x, Vertices[i].y, Vertices[i].z);
     glEnd();
 }
+
+void Poligono::pintaAresta(int n)
+{
+    if (Vertices.empty())
+        return;
+
+    glBegin(GL_LINES);
+    glVertex3f(Vertices[n].x, Vertices[n].y, Vertices[n].z);
+    int n1 = (n + 1) % Vertices.size();
+    glVertex3f(Vertices[n1].x, Vertices[n1].y, Vertices[n1].z);
+    glEnd();
+}
+
 void Poligono::desenhaVertices()
 {
     glBegin(GL_POINTS);
