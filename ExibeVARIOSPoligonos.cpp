@@ -60,14 +60,14 @@ bool FoiClicado = false;
 float angulo = 0.0;
 
 // Variaveis relacionadas aos testes de poligonos ---
-char nomeArqPoligonos[] = "20_polygons.txt";
+char nomeArqPoligonos[] = "40_polygons.txt";
 
 bool diagramaMonoCromatico = false; // m
 bool mostrarEnvelopes = false; // e
 bool linhaHorizVerde = false; // v
 
 bool mostrarEnvelopesInterseccao = false; // r
-bool mostrarPoligonosInterseccao = false; // f 
+bool mostrarPoligonosInterseccao = false; // f
 
 bool mostrarEnvelopesComPonto = false; // c
 

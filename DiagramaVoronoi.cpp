@@ -126,7 +126,7 @@ void Voronoi::desenhaEnvelopesComPonto()
     {
         EnvelopesComPonto[i].Desenha();
     }
-    
+
 }
 // **********************************************************************
 void Voronoi::desenhaArestaSaida()
@@ -173,12 +173,12 @@ Poligono Voronoi::inclusaoPoligonosConcavos(Ponto &ponto)
             contadorInterseccoes += 1;
             inserePoligonoInterseccao(poligonoAtual);
 
-            cout << "     - Tem interseccção com o poligono (" << poligonoAtual.getId() << ")"<< endl;
+            cout << "     - Tem interseccção com o envelope do poligono (" << poligonoAtual.getId() << ")"<< endl;
             if(poligonoAtual.pontoEstaDentroPoligono(ponto))
                 result = poligonoAtual;
         }
     }
-        cout << "     *Total de Intersecções com polígonos: " << contadorInterseccoes << endl;
+        cout << "     *Total de Intersecções com envelopes: " << contadorInterseccoes << endl;
 
     return result;
 }
